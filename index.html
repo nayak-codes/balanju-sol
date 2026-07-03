@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balanju — We Build. We Serve. We Deliver.</title>
+  <meta name="description"
+    content="Balanju is a fresh tech startup offering custom software development services and building innovative products. Founded by a B.Tech student with a vision." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔷</text></svg>" />
+  <style>
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(108, 61, 232, 0.1), rgba(255, 77, 109, 0.08));
+      border: 1px solid rgba(108, 61, 232, 0.2);
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--indigo);
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mint);
+      animation: pulse 1.8s ease infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.4);
+      }
+    }
+
+    /* Two pillars — Products + Services */
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 56px;
+    }
+
+    @media(max-width:680px) {
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pillar-card {
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .pillar-card .label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+
+    .pillar-card h3 {
+      color: white;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .pillar-card p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .pillar-card ul {
+      list-style: none;
+    }
+
+    .pillar-card ul li {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.88rem;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pillar-card ul li::before {
+      content: '✓';
+      font-weight: 700;
+    }
+
+    /* Services strip */
+    .service-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .service-chip {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .service-chip:hover {
+      border-color: var(--indigo);
+      box-shadow: 0 0 0 3px rgba(108, 61, 232, 0.07);
+      transform: translateY(-3px);
+    }
+
+    .service-chip .icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .service-chip h4 {
+      font-size: 0.9rem;
+    }
+
+    /* Founder spotlight */
+    .founder-card {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+
+    .founder-avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .founder-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--indigo), var(--coral));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: 800;
+      color: white;
+    }
+
+    .founder-badge {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      background: var(--mint);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 2px solid white;
+    }
+
+    .founder-quote {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-mid);
+      margin: 10px 0 16px;
+      line-height: 1.7;
+    }
+
+    /* CTA banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--indigo) 0%, #9B35C8 50%, var(--coral) 100%);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .cta-banner h2 {
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .cta-banner p {
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 500px;
+      margin: 0 auto 32px;
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Balanju Home">
+        <span>B</span><span>a</span><span>l</span><span>a</span><span>n</span><span>j</span><span>u</span>
+      </a>
+      <ul class="nav-links" role="navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products & Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="company.html">Company</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="contact.html" class="btn btn-primary" id="nav-cta">Hire Us</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Mobile Nav ── -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products & Services</a>
+    <a href="about.html">About</a>
+    <a href="company.html">Company</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary btn-lg" style="margin-top:16px;">Hire Us</a>
+  </div>
+
+  <!-- ── Hero Section ── -->
+  <section class="hero" id="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="container">
+      <div class="hero-content" style="max-width:800px;">
+        <div class="hero-badge reveal">
+          <span class="dot"></span>
+          🎓 Founded by a B.Tech Student · Just Getting Started
+        </div>
+        <h1 class="reveal reveal-delay-1">
+          We <span style="color:var(--indigo)">Build</span>.<br />
+          We <span style="color:var(--coral)">Serve</span>.<br />
+          We <span style="color:var(--mint)">Deliver</span>.
+        </h1>
+        <p class="reveal reveal-delay-2" style="font-size:1.15rem;max-width:580px;margin:24px 0 40px;">
+          Balanju is a brand-new tech startup — we create our own software products <strong>and</strong> provide custom
+          development services to businesses. Real solutions, built with passion.
+        </p>
+        <div class="flex gap-sm reveal reveal-delay-3" style="flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary btn-lg" id="hero-hire-btn">🤝 Hire Us for a Project</a>
+          <a href="products.html" class="btn btn-outline btn-lg" id="hero-products-btn">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Two Pillars ── -->
+  <section class="section" id="pillars">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:48px;">
+        <div class="section-label">What We Do</div>
+        <h2>Two things we're great at</h2>
+        <p style="max-width:440px;margin:12px auto 0;">Balanju runs on two tracks — building our own products and
+          delivering services to our clients.</p>
+      </div>
+
+      <div class="pillars">
+        <!-- Products -->
+        <div class="pillar-card bg-gradient-blue reveal" id="pillar-products">
+          <div class="label">Track 01</div>
+          <h3>🚀 Our Products</h3>
+          <p>We build and own our own software products — tools and apps that solve real problems for real users.</p>
+          <ul>
+            <li>We design, develop & launch them ourselves</li>
+            <li>Subscription & freemium models</li>
+            <li>Built for scale from day one</li>
+            <li>Currently in active development</li>
+          </ul>
+          <a href="products.html#our-products" class="btn btn-lg"
+            style="background:rgba(255,255,255,0.2);color:white;margin-top:24px;border:1px solid rgba(255,255,255,0.3);"
+            id="pillar-products-btn">See Products →</a>
+        </div>
+
+        <!-- Services -->
+        <div class="pillar-card bg-gradient-red reveal reveal-delay-1" id="pillar-services">
+          <div class="label">Track 02</div>
+          <h3>🛠️ Client Services</h3>
+          <p>We take on client projects and deliver custom software solutions — websites, apps, AI tools, and more.</p>
+          <ul>
+            <li>Custom web & mobile development</li>
+            <li>AI / ML integrations</li>
+            <li>End-to-end project delivery</li>
+            <li>Affordable startup-friendly pricing</li>
+          </ul>
+          <a href="products.html#services" class="btn btn-lg"
+            style="background:rgba(255,255,255,0.2);color:white;margin-top:24px;border:1px solid rgba(255,255,255,0.3);"
+            id="pillar-services-btn">Our Services →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Services Quick List ── -->
+  <section class="section-sm bg-light" id="services-preview">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:36px;">
+        <div class="section-label">Services We Offer</div>
+        <h2>What can we build for you?</h2>
+      </div>
+      <div class="service-strip">
+        <div class="service-chip reveal" id="svc-web">
+          <div class="icon">🌐</div>
+          <h4>Web Development</h4>
+        </div>
+        <div class="service-chip reveal reveal-delay-1" id="svc-app">
+          <div class="icon">📱</div>
+          <h4>App Development</h4>
+        </div>
+        <div class="service-chip reveal reveal-delay-2" id="svc-ai">
+          <div class="icon">🤖</div>
+          <h4>AI & ML Solutions</h4>
+        </div>
+        <div class="service-chip reveal reveal-delay-3" id="svc-software">
+          <div class="icon">💻</div>
+          <h4>Custom Software</h4>
+        </div>
+        <div class="service-chip reveal" id="svc-ui">
+          <div class="icon">🎨</div>
+          <h4>UI/UX Design</h4>
+        </div>
+        <div class="service-chip reveal reveal-delay-1" id="svc-db">
+          <div class="icon">🗄️</div>
+          <h4>Database & Backend</h4>
+        </div>
+      </div>
+      <div class="text-center reveal" style="margin-top:36px;">
+        <a href="products.html#services" class="btn btn-outline btn-lg" id="view-all-services">See All Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Founder Spotlight ── -->
+  <section class="section" id="founder">
+    <div class="container" style="max-width:900px;">
+      <div class="text-center reveal" style="margin-bottom:40px;">
+        <div class="section-label">The Person Behind It</div>
+        <h2>Meet the Founder</h2>
+      </div>
+      <div class="founder-card reveal reveal-delay-1">
+        <div class="founder-avatar-wrap">
+          <div class="founder-avatar">B</div>
+          <div class="founder-badge">Founder</div>
+        </div>
+        <div style="flex:1;min-width:240px;">
+          <h3 style="margin-bottom:4px;">Balaji</h3>
+          <p style="font-size:0.85rem;color:var(--indigo);font-weight:600;margin-bottom:12px;">Founder & CEO · B.Tech
+            Student</p>
+          <p class="founder-quote">"I'm a B.Tech student with a passion for building things. Balanju started as my dream
+            to turn ideas into real software — and to help other businesses do the same. We're just getting started, and
+            the best is ahead."</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <span
+              style="background:rgba(108,61,232,0.08);color:var(--indigo);font-size:0.8rem;font-weight:600;padding:5px 12px;border-radius:var(--radius-pill);">🎓
+              B.Tech Engineering</span>
+            <span
+              style="background:rgba(0,201,167,0.08);color:var(--mint);font-size:0.8rem;font-weight:600;padding:5px 12px;border-radius:var(--radius-pill);">💡
+              Product Builder</span>
+            <span
+              style="background:rgba(255,77,109,0.08);color:var(--coral);font-size:0.8rem;font-weight:600;padding:5px 12px;border-radius:var(--radius-pill);">🚀
+              Startup Founder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Why Balanju ── -->
+  <section class="section bg-light" id="why-us">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:48px;">
+        <div class="section-label">Why Choose Us</div>
+        <h2>Fresh startup, real value</h2>
+        <p style="max-width:480px;margin:12px auto 0;">We're new, but that's our strength — more effort, more attention,
+          and more passion than anyone else.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;">
+        <div class="card reveal" id="why-fresh">
+          <div style="font-size:2rem;margin-bottom:12px;">⚡</div>
+          <h4>Fresh & Hungry</h4>
+          <p style="font-size:0.88rem;margin-top:8px;">We're a new startup with everything to prove. Every project gets
+            our full focus and maximum effort.</p>
+        </div>
+        <div class="card reveal reveal-delay-1" id="why-affordable">
+          <div style="font-size:2rem;margin-bottom:12px;">💰</div>
+          <h4>Affordable Pricing</h4>
+          <p style="font-size:0.88rem;margin-top:8px;">No bloated agency prices. We offer startup-friendly rates without
+            compromising on quality.</p>
+        </div>
+        <div class="card reveal reveal-delay-2" id="why-tech">
+          <div style="font-size:2rem;margin-bottom:12px;">🎓</div>
+          <h4>Engineering Mindset</h4>
+          <p style="font-size:0.88rem;margin-top:8px;">Built by a B.Tech student — we think like engineers. Every
+            solution is efficient, scalable, and clean.</p>
+        </div>
+        <div class="card reveal reveal-delay-3" id="why-personal">
+          <div style="font-size:2rem;margin-bottom:12px;">🤝</div>
+          <h4>Personal Attention</h4>
+          <p style="font-size:0.88rem;margin-top:8px;">You talk directly to the founder. No middlemen, no delays — just
+            direct, honest communication.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Banner ── -->
+  <section class="section" id="cta">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div class="section-label" style="background:rgba(255,255,255,0.15);color:white;margin-bottom:20px;">Let's Work
+          Together</div>
+        <h2>Have a project in mind?</h2>
+        <p>Whether you need a website, a mobile app, an AI tool, or a complete software solution — let's talk. First
+          consultation is free.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-lg" style="background:white;color:var(--indigo);font-weight:700;"
+            id="cta-hire">🚀 Start a Project</a>
+          <a href="products.html#services" class="btn btn-lg"
+            style="background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.4);"
+            id="cta-services">Browse Services →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo" style="display:inline-flex;">
+            <span>B</span><span>a</span><span>l</span><span>a</span><span>n</span><span>j</span><span>u</span>
+          </a>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);max-width:240px;margin-top:12px;">
+            A product & service tech startup. We build. We serve. We deliver.
+          </p>
+          <div class="social-links" style="margin-top:20px;">
+            <a href="#" class="social-link" id="footer-twitter" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" id="footer-linkedin" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" id="footer-github" aria-label="GitHub">⌨</a>
+          </div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="products.html#services">Web Development</a></li>
+            <li><a href="products.html#services">App Development</a></li>
+            <li><a href="products.html#services">AI & ML Solutions</a></li>
+            <li><a href="products.html#services">Custom Software</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="company.html">Company Info</a></li>
+            <li><a href="products.html">Our Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get In Touch</h4>
+          <ul>
+            <li><a href="contact.html">Start a Project</a></li>
+            <li><a href="contact.html">Free Consultation</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Balanju. All rights reserved.</p>
+        <p style="color:rgba(255,255,255,0.4);">Founded with ❤️ in India · Est. 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
