@@ -11,6 +11,20 @@
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔷</text></svg>" />
   <style>
+    /* ── Hero full-bg canvas ── */
+    #heroCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -230,6 +244,167 @@
       margin: 0 auto 32px;
       font-size: 1.05rem;
     }
+
+    /* ── Product Showcase Cards ── */
+    .product-showcase-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: 0 1px 3px rgba(26,17,40,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      background: linear-gradient(135deg, #FAFBFF 0%, #FFFFFF 100%);
+    }
+
+    .product-showcase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(108,61,232,0.14);
+      border-color: rgba(108,61,232,0.35);
+    }
+
+    /* Status badge */
+    .prod-showcase-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .prod-showcase-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .prod-showcase-badge.live {
+      background: linear-gradient(135deg, rgba(0,201,167,0.12), rgba(0,201,167,0.08));
+      color: #059669;
+      border: 1px solid rgba(0,201,167,0.25);
+    }
+
+    .prod-showcase-badge.live::before {
+      background: #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    .prod-showcase-badge.building {
+      background: linear-gradient(135deg, rgba(255,159,28,0.12), rgba(255,159,28,0.08));
+      color: #d97706;
+      border: 1px solid rgba(255,159,28,0.25);
+    }
+
+    .prod-showcase-badge.building::before {
+      background: var(--amber);
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+
+    /* Icon container */
+    .prod-showcase-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      margin-top: 12px;
+    }
+
+    /* Logo-based icons */
+    .prod-showcase-icon.vidhyardhi-logo,
+    .prod-showcase-icon.ourcompiler-logo,
+    .prod-showcase-icon.fruitrush-logo {
+      background: white;
+      border: 1px solid var(--border);
+    }
+
+    .prod-showcase-icon img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .product-showcase-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+      line-height: 1.3;
+    }
+
+    .prod-showcase-desc {
+      font-size: 0.88rem;
+      color: var(--text-grey);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    /* Tags */
+    .prod-showcase-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .prod-showcase-tags span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background: var(--bg-grey);
+      color: var(--text-mid);
+      border: 1px solid var(--border);
+    }
+
+    /* Call-to-action link */
+    .prod-showcase-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--indigo);
+      padding: 10px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      background: white;
+      transition: var(--transition);
+      text-decoration: none;
+      width: fit-content;
+      margin-top: auto;
+    }
+
+    .prod-showcase-link:hover {
+      color: white;
+      background: var(--indigo);
+      border-color: var(--indigo);
+      transform: translateX(3px);
+      box-shadow: 0 4px 12px rgba(108,61,232,0.25);
+    }
   </style>
 </head>
 
@@ -243,7 +418,8 @@
       </a>
       <ul class="nav-links" role="navigation">
         <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products & Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="company.html">Company</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -260,7 +436,8 @@
   <!-- ── Mobile Nav ── -->
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
-    <a href="products.html">Products & Services</a>
+    <a href="products.html">Products</a>
+    <a href="services.html">Services</a>
     <a href="about.html">About</a>
     <a href="company.html">Company</a>
     <a href="contact.html">Contact</a>
@@ -269,11 +446,12 @@
 
   <!-- ── Hero Section ── -->
   <section class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
     <div class="container">
-      <div class="hero-content" style="max-width:800px;">
+      <div class="hero-content" style="max-width:680px;">
         <div class="hero-badge reveal">
           <span class="dot"></span>
           🎓 Founded by a B.Tech Student · Just Getting Started
@@ -317,7 +495,7 @@
             <li>Built for scale from day one</li>
             <li>Currently in active development</li>
           </ul>
-          <a href="products.html#our-products" class="btn btn-lg"
+          <a href="products.html" class="btn btn-lg"
             style="background:rgba(255,255,255,0.2);color:white;margin-top:24px;border:1px solid rgba(255,255,255,0.3);"
             id="pillar-products-btn">See Products →</a>
         </div>
@@ -333,10 +511,104 @@
             <li>End-to-end project delivery</li>
             <li>Affordable startup-friendly pricing</li>
           </ul>
-          <a href="products.html#services" class="btn btn-lg"
+          <a href="services.html" class="btn btn-lg"
             style="background:rgba(255,255,255,0.2);color:white;margin-top:24px;border:1px solid rgba(255,255,255,0.3);"
             id="pillar-services-btn">Our Services →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Products Showcase ── -->
+  <section class="section" id="products-showcase">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:56px;">
+        <div class="section-label">🚀 Featured Products</div>
+        <h2>See what we're building</h2>
+        <p style="max-width:480px;margin:12px auto 0;">From consultancy services to indie apps — here's what Balanju is creating.</p>
+      </div>
+
+      <!-- Products Grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-bottom:40px;">
+        <!-- Balanju Consultancy -->
+        <div class="product-showcase-card reveal" id="home-prod-consultancy">
+          <div class="prod-showcase-badge live">Live</div>
+          <div class="prod-showcase-icon" style="background:linear-gradient(135deg,#6C3DE8,#5a2fd4);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🏢</div>
+          <h3>Balanju Consultancy</h3>
+          <p class="prod-showcase-desc">Custom software development & consulting services. We build websites, mobile apps, and AI solutions for businesses.</p>
+          <div class="prod-showcase-tags">
+            <span>Web Dev</span>
+            <span>Mobile Apps</span>
+            <span>AI/ML</span>
+          </div>
+          <a href="https://balanju.vercel.app/" target="_blank" rel="noopener noreferrer" class="prod-showcase-link">Visit →</a>
+        </div>
+
+        <!-- Vidhyardhi -->
+        <div class="product-showcase-card reveal reveal-delay-1" id="home-prod-vidhyardhi">
+          <div class="prod-showcase-badge live">Available</div>
+          <div class="prod-showcase-icon vidhyardhi-logo">
+            <img src="logos/vidhyardhi logo.png" alt="Vidhyardhi Logo" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+          </div>
+          <h3>Vidhyardhi</h3>
+          <p class="prod-showcase-desc">Smart study app for students. Timetable planning, notes, and exam prep resources built for learning.</p>
+          <div class="prod-showcase-tags">
+            <span>Flutter</span>
+            <span>Android</span>
+            <span>iOS</span>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.vithyarthi.app" target="_blank" rel="noopener noreferrer" class="prod-showcase-link">Download →</a>
+        </div>
+
+        <!-- OurCompiler -->
+        <div class="product-showcase-card reveal reveal-delay-2" id="home-prod-ourcompiler">
+          <div class="prod-showcase-badge live">Live</div>
+          <div class="prod-showcase-icon ourcompiler-logo">
+            <img src="logos/our-compiler-logo.png" alt="OurCompiler Logo" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+          </div>
+          <h3>OurCompiler</h3>
+          <p class="prod-showcase-desc">Online code compiler & IDE. Write and run code in multiple languages directly in your browser.</p>
+          <div class="prod-showcase-tags">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Multi-language</span>
+          </div>
+          <a href="https://ourcompiler.com" target="_blank" rel="noopener noreferrer" class="prod-showcase-link">Try It →</a>
+        </div>
+
+        <!-- Fruit Rush -->
+        <div class="product-showcase-card reveal" id="home-prod-fruitrush">
+          <div class="prod-showcase-badge building">Building</div>
+          <div class="prod-showcase-icon fruitrush-logo">
+            <img src="logos/Fruit-rush-logo.png" alt="Fruit Rush Logo" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+          </div>
+          <h3>Fruit Rush</h3>
+          <p class="prod-showcase-desc">Casual mobile game. Slice fruits, dodge bombs, and chase high scores with smooth gameplay.</p>
+          <div class="prod-showcase-tags">
+            <span>Unity</span>
+            <span>Gaming</span>
+            <span>Android/iOS</span>
+          </div>
+          <a href="contact.html?ref=fruitrush" class="prod-showcase-link">Notify Me →</a>
+        </div>
+
+        <!-- Knapsack Editor -->
+        <div class="product-showcase-card reveal reveal-delay-1" id="home-prod-knapsack">
+          <div class="prod-showcase-badge building">Building</div>
+          <div class="prod-showcase-icon" style="background:linear-gradient(135deg,#8B5CF6,#6C3DE8);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">✏️</div>
+          <h3>Knapsack Editor</h3>
+          <p class="prod-showcase-desc">Minimalist markdown editor. Distraction-free writing for notes, docs, and blog posts.</p>
+          <div class="prod-showcase-tags">
+            <span>React</span>
+            <span>Markdown</span>
+            <span>PWA</span>
+          </div>
+          <a href="contact.html?ref=knapsack" class="prod-showcase-link">Notify Me →</a>
+        </div>
+      </div>
+
+      <div class="text-center reveal">
+        <a href="products.html" class="btn btn-primary btn-lg" id="view-all-products">See All Products →</a>
       </div>
     </div>
   </section>
@@ -375,7 +647,7 @@
         </div>
       </div>
       <div class="text-center reveal" style="margin-top:36px;">
-        <a href="products.html#services" class="btn btn-outline btn-lg" id="view-all-services">See All Services →</a>
+        <a href="services.html" class="btn btn-outline btn-lg" id="view-all-services">See All Services →</a>
       </div>
     </div>
   </section>
@@ -465,7 +737,7 @@
         <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
           <a href="contact.html" class="btn btn-lg" style="background:white;color:var(--indigo);font-weight:700;"
             id="cta-hire">🚀 Start a Project</a>
-          <a href="products.html#services" class="btn btn-lg"
+          <a href="services.html" class="btn btn-lg"
             style="background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.4);"
             id="cta-services">Browse Services →</a>
         </div>
@@ -493,10 +765,10 @@
         <div>
           <h4>Services</h4>
           <ul>
-            <li><a href="products.html#services">Web Development</a></li>
-            <li><a href="products.html#services">App Development</a></li>
-            <li><a href="products.html#services">AI & ML Solutions</a></li>
-            <li><a href="products.html#services">Custom Software</a></li>
+            <li><a href="services.html">Web Development</a></li>
+            <li><a href="services.html">App Development</a></li>
+            <li><a href="services.html">AI & ML Solutions</a></li>
+            <li><a href="services.html">Custom Software</a></li>
           </ul>
         </div>
         <div>
@@ -526,6 +798,191 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    /* ── Hero Canvas — Constellation Network (Linear/Vercel style) ── */
+    (function () {
+      const canvas = document.getElementById('heroCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const hero = document.getElementById('hero');
+
+      /* ── Cursor ── */
+      let mouse = { x: -9999, y: -9999 };
+      let smooth = { x: -9999, y: -9999 };
+
+      hero.addEventListener('mousemove', e => {
+        const r = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - r.left;
+        mouse.y = e.clientY - r.top;
+      });
+      hero.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+      /* ── Resize ── */
+      let W, H;
+      function resize() {
+        W = canvas.width  = hero.clientWidth;
+        H = canvas.height = hero.clientHeight;
+        initParticles();
+      }
+      window.addEventListener('resize', resize);
+
+      /* ── Config ── */
+      const COUNT         = 90;     // number of nodes
+      const CONNECT_DIST  = 130;    // px — max line distance
+      const CURSOR_DIST   = 160;    // px — attraction radius
+      const CURSOR_FORCE  = 0.018;  // attraction strength
+      const SPRING_K      = 0.03;   // spring to home
+      const DAMPING       = 0.92;   // inertia
+      const DOT_R         = 2.2;    // base dot radius
+
+      /* ── Brand colors (subtle, sophisticated) ── */
+      const NODE_COLOR  = 'rgba(108, 61, 232, ';   // indigo
+      const LINE_COLOR  = 'rgba(108, 61, 232, ';   // same for lines
+      const CURSOR_COLOR= 'rgba(255, 77,  109, ';  // coral for cursor halo
+
+      /* ── Particles ── */
+      let pts = [];
+
+      function initParticles() {
+        pts = [];
+        for (let i = 0; i < COUNT; i++) {
+          const ox = Math.random() * W;
+          const oy = Math.random() * H;
+          pts.push({
+            x: ox, y: oy,
+            ox, oy,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            /* slow idle drift */
+            phase: Math.random() * Math.PI * 2,
+            freq:  0.0006 + Math.random() * 0.0008,
+            amp:   18 + Math.random() * 22,
+          });
+        }
+      }
+
+      /* ── Main loop ── */
+      let t = 0;
+      function tick() {
+        requestAnimationFrame(tick);
+        t++;
+        ctx.clearRect(0, 0, W, H);
+
+        /* smooth cursor lag */
+        smooth.x += (mouse.x - smooth.x) * 0.1;
+        smooth.y += (mouse.y - smooth.y) * 0.1;
+        const cursorActive = smooth.x > 0 && smooth.x < W;
+
+        /* ── Update positions ── */
+        for (const p of pts) {
+          /* idle drift: sine-based home offset */
+          const driftX = Math.sin(t * p.freq + p.phase) * p.amp;
+          const driftY = Math.cos(t * p.freq * 1.3 + p.phase) * p.amp * 0.7;
+          const tx = p.ox + driftX;
+          const ty = p.oy + driftY;
+
+          /* spring to drifted home */
+          p.vx += (tx - p.x) * SPRING_K;
+          p.vy += (ty - p.y) * SPRING_K;
+
+          /* cursor attraction */
+          if (cursorActive) {
+            const dx   = smooth.x - p.x;
+            const dy   = smooth.y - p.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < CURSOR_DIST && dist > 1) {
+              const strength = (1 - dist / CURSOR_DIST) * CURSOR_FORCE;
+              p.vx += dx * strength;
+              p.vy += dy * strength;
+            }
+          }
+
+          /* integrate */
+          p.vx *= DAMPING;
+          p.vy *= DAMPING;
+          p.x  += p.vx;
+          p.y  += p.vy;
+
+          /* soft boundary wrap */
+          if (p.x < -20) p.x = W + 20;
+          if (p.x > W+20) p.x = -20;
+          if (p.y < -20) p.y = H + 20;
+          if (p.y > H+20) p.y = -20;
+        }
+
+        /* ── Draw connection lines ── */
+        for (let i = 0; i < pts.length; i++) {
+          const a = pts[i];
+          for (let j = i + 1; j < pts.length; j++) {
+            const b  = pts[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const d  = Math.sqrt(dx*dx + dy*dy);
+            if (d < CONNECT_DIST) {
+              const alpha = (1 - d / CONNECT_DIST) * 0.22;
+
+              /* boost line alpha if near cursor */
+              let boost = 0;
+              if (cursorActive) {
+                const ma = Math.sqrt((a.x-smooth.x)**2 + (a.y-smooth.y)**2);
+                const mb = Math.sqrt((b.x-smooth.x)**2 + (b.y-smooth.y)**2);
+                if (ma < CURSOR_DIST || mb < CURSOR_DIST) boost = 0.35;
+              }
+
+              ctx.beginPath();
+              ctx.strokeStyle = LINE_COLOR + (alpha + boost) + ')';
+              ctx.lineWidth   = 0.8 + boost * 1.2;
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        /* ── Cursor halo ── */
+        if (cursorActive) {
+          const grad = ctx.createRadialGradient(smooth.x, smooth.y, 0, smooth.x, smooth.y, CURSOR_DIST);
+          grad.addColorStop(0,   CURSOR_COLOR + '0.08)');
+          grad.addColorStop(0.4, CURSOR_COLOR + '0.04)');
+          grad.addColorStop(1,   CURSOR_COLOR + '0)');
+          ctx.beginPath();
+          ctx.arc(smooth.x, smooth.y, CURSOR_DIST, 0, Math.PI * 2);
+          ctx.fillStyle = grad;
+          ctx.fill();
+        }
+
+        /* ── Draw nodes ── */
+        for (const p of pts) {
+          let alpha = 0.45;
+          let r     = DOT_R;
+
+          /* enlarge & brighten near cursor */
+          if (cursorActive) {
+            const d = Math.sqrt((p.x-smooth.x)**2 + (p.y-smooth.y)**2);
+            if (d < CURSOR_DIST) {
+              const t2 = 1 - d / CURSOR_DIST;
+              alpha += t2 * 0.45;
+              r     += t2 * 2.5;
+            }
+          }
+
+          /* glow */
+          ctx.shadowColor = '#6C3DE8';
+          ctx.shadowBlur  = r > 3 ? 8 : 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+          ctx.fillStyle = NODE_COLOR + alpha + ')';
+          ctx.fill();
+        }
+
+        ctx.shadowBlur = 0;
+      }
+
+      resize();
+      tick();
+    })();
+  </script>
 </body>
 
 </html>

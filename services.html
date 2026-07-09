@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Balanju</title>
+  <meta name="description" content="Balanju offers custom web development, mobile apps, AI/ML solutions, UI/UX design, and backend development for startups and businesses." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔷</text></svg>" />
+  <style>
+    .service-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 36px 30px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+    .service-card .icon-wrap {
+      width: 64px; height: 64px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    .service-card h3 { margin-bottom: 10px; }
+    .service-card p  { font-size: 0.9rem; margin-bottom: 20px; flex:1; }
+    .tech-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-grey);
+      color: var(--text-mid);
+      margin: 3px 2px 0;
+      border: 1px solid var(--border);
+    }
+
+    /* Process steps */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+    .process-step {
+      text-align: center;
+      padding: 32px 20px;
+      position: relative;
+    }
+    .process-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -10px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--border);
+    }
+    .step-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; font-weight: 800;
+      margin: 0 auto 16px;
+      color: white;
+    }
+    @media(max-width:600px) {
+      .process-step:not(:last-child)::after { display: none; }
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .pricing-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .pricing-card.featured {
+      border-color: var(--indigo);
+      box-shadow: 0 0 0 3px rgba(108,61,232,0.08);
+      transform: scale(1.02);
+    }
+    .pricing-card:hover { box-shadow: var(--shadow-lg); }
+    .pricing-popular {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--indigo);
+      color: white;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: var(--radius-pill);
+    }
+    .pricing-price {
+      font-size: 2.2rem; font-weight: 800;
+      color: var(--text-dark);
+      margin: 16px 0 4px;
+    }
+    .pricing-price sup { font-size: 1rem; vertical-align: top; margin-top: 10px; }
+    .pricing-period { font-size: 0.85rem; color: var(--text-grey); }
+    .pricing-features { list-style: none; margin: 20px 0 28px; }
+    .pricing-features li {
+      padding: 7px 0;
+      font-size: 0.88rem;
+      display: flex; gap: 8px; align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-features li:last-child { border: none; }
+    .pricing-features li .check { color: var(--mint); font-weight: 700; flex-shrink:0; }
+
+    /* Why us chips */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+      gap: 20px;
+    }
+    .why-chip {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+    .why-chip:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .why-chip .wi { font-size: 1.8rem; flex-shrink:0; }
+    .why-chip h4 { margin-bottom: 4px; }
+    .why-chip p  { font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Balanju Home">
+        <span>B</span><span>a</span><span>l</span><span>a</span><span>n</span><span>j</span><span>u</span>
+      </a>
+      <ul class="nav-links" role="navigation">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="company.html">Company</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="contact.html" class="btn btn-primary" id="nav-cta">Hire Us</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Mobile Nav ── -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="company.html">Company</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary btn-lg" style="margin-top:16px;">Hire Us</a>
+  </div>
+
+  <!-- ── Page Hero ── -->
+  <section class="page-hero" id="page-top">
+    <div class="container">
+      <div class="section-label reveal" style="color:var(--coral);background:rgba(255,77,109,0.08);">🛠️ Client Services</div>
+      <h1 class="reveal reveal-delay-1">We build what<br />you need</h1>
+      <p class="reveal reveal-delay-2" style="max-width:520px;margin:16px auto 0;font-size:1.05rem;">
+        Got a project? We'll design, build, and deliver it — from a simple landing page to a complex AI-powered application. Startup-friendly pricing, zero fluff.
+      </p>
+      <div class="reveal reveal-delay-3" style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary btn-lg" id="hero-hire">🤝 Start a Project</a>
+        <a href="#pricing" class="btn btn-outline btn-lg" id="hero-pricing">View Pricing →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Services Grid ── -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:56px;">
+        <div class="section-label">What We Offer</div>
+        <h2>Full-stack development<br />from design to delivery</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;">
+
+        <!-- Web Dev -->
+        <div class="service-card reveal" id="svc-web">
+          <div class="icon-wrap"><img src="logos/web-development-logo.svg" alt="Web Development" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h3>Web Development</h3>
+          <p>Custom websites and web applications — from landing pages to full-stack platforms. Fast, responsive, and SEO-ready from day one.</p>
+          <div style="margin-bottom:20px;">
+            <span class="tech-tag">HTML/CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">PHP</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm" id="contact-web">Get a Quote →</a>
+        </div>
+
+        <!-- App Dev -->
+        <div class="service-card reveal reveal-delay-1" id="svc-app">
+          <div class="icon-wrap"><img src="logos/mobile-app-logo.svg" alt="Mobile App Development" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h3>Mobile App Development</h3>
+          <p>Android and iOS applications — native or cross-platform. Clean UI, smooth UX, built for performance and real users.</p>
+          <div style="margin-bottom:20px;">
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">React Native</span>
+            <span class="tech-tag">Android</span>
+            <span class="tech-tag">Kotlin</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm" style="color:var(--coral);border-color:var(--coral);" id="contact-app">Get a Quote →</a>
+        </div>
+
+        <!-- AI/ML -->
+        <div class="service-card reveal reveal-delay-2" id="svc-ai">
+          <div class="icon-wrap"><img src="logos/ai-ml-logo.svg" alt="AI & ML Solutions" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h3>AI &amp; ML Solutions</h3>
+          <p>Integrate AI into your product — chatbots, recommendation engines, image recognition, and custom model training.</p>
+          <div style="margin-bottom:20px;">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">TensorFlow</span>
+            <span class="tech-tag">OpenAI API</span>
+            <span class="tech-tag">FastAPI</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm" style="color:var(--amber);border-color:var(--amber);" id="contact-ai">Get a Quote →</a>
+        </div>
+
+        <!-- Custom Software -->
+        <div class="service-card reveal" id="svc-custom">
+          <div class="icon-wrap"><img src="logos/custom-software-logo.svg" alt="Custom Software Development" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h3>Custom Software Development</h3>
+          <p>Tailored desktop or web software for your business — built from scratch, exactly how you want it, with clean and scalable code.</p>
+          <div style="margin-bottom:20px;">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">Electron</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm" style="color:var(--mint);border-color:var(--mint);" id="contact-custom">Get a Quote →</a>
+        </div>
+
+        <!-- UI/UX Design -->
+        <div class="service-card reveal reveal-delay-1" id="svc-design">
+          <div class="icon-wrap"><img src="logos/ui-ux-logo.svg" alt="UI/UX Design" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h3>UI/UX Design</h3>
+          <p>User interfaces that are beautiful, intuitive, and conversion-focused. From wireframes to pixel-perfect, production-ready designs.</p>
+          <div style="margin-bottom:20px;">
+            <span class="tech-tag">Figma</span>
+            <span class="tech-tag">Prototyping</span>
+            <span class="tech-tag">Design System</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm" id="contact-design">Get a Quote →</a>
+        </div>
+
+        <!-- Backend & Database -->
+        <div class="service-card reveal reveal-delay-2" id="svc-backend">
+          <div class="icon-wrap"><img src="logos/backend-database-logo.svg" alt="Backend & Database" style="width:100%;height:100%;object-fit:contain;"></div>
+          <h3>Backend &amp; Database</h3>
+          <p>APIs, databases, cloud deployment — the engine behind your app. Scalable, secure, and reliable architecture built to grow.</p>
+          <div style="margin-bottom:20px;">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">AWS</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm" style="color:var(--coral);border-color:var(--coral);" id="contact-backend">Get a Quote →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Why Choose Us ── -->
+  <section class="section-sm bg-light" id="why-us">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:40px;">
+        <div class="section-label">Why Balanju</div>
+        <h2>What makes us different</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-chip reveal">
+          <div class="wi">⚡</div>
+          <div>
+            <h4>Fresh & Hungry</h4>
+            <p>New startup with everything to prove. Every project gets our full focus and maximum effort.</p>
+          </div>
+        </div>
+        <div class="why-chip reveal reveal-delay-1">
+          <div class="wi">💰</div>
+          <div>
+            <h4>Affordable Pricing</h4>
+            <p>Startup-friendly rates without compromising on quality. No bloated agency costs.</p>
+          </div>
+        </div>
+        <div class="why-chip reveal reveal-delay-2">
+          <div class="wi">🤝</div>
+          <div>
+            <h4>Direct Communication</h4>
+            <p>You talk directly to the founder. No middlemen, no delays, just honest and clear updates.</p>
+          </div>
+        </div>
+        <div class="why-chip reveal reveal-delay-3">
+          <div class="wi">🎓</div>
+          <div>
+            <h4>Engineering Mindset</h4>
+            <p>Built by a B.Tech student — every solution is efficient, scalable, and clean code.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How We Work ── -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:48px;">
+        <div class="section-label">Our Process</div>
+        <h2>How we deliver your project</h2>
+        <p style="max-width:440px;margin:12px auto 0;">Simple, transparent, and stress-free from kickoff to launch.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num bg-gradient-blue">1</div>
+          <h4>Discovery Call</h4>
+          <p style="font-size:0.84rem;">Free 30-min call to understand your idea, goals, and requirements.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num bg-gradient-red">2</div>
+          <h4>Plan &amp; Propose</h4>
+          <p style="font-size:0.84rem;">Detailed proposal with timeline, tech stack, and pricing sent to you.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num bg-gradient-yellow">3</div>
+          <h4>Build &amp; Update</h4>
+          <p style="font-size:0.84rem;">Development with regular progress updates and live demos.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-num bg-gradient-green">4</div>
+          <h4>Deliver &amp; Support</h4>
+          <p style="font-size:0.84rem;">Final delivery with docs, handover, and 30-day free support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ── -->
+  <section class="section bg-light" id="pricing">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:48px;">
+        <div class="section-label">💰 Pricing</div>
+        <h2>Honest, transparent pricing</h2>
+        <p style="max-width:440px;margin:12px auto 0;">No hidden costs. Every project is custom-quoted — these are rough starting points to help you plan.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal" id="price-basic">
+          <h3>Starter</h3>
+          <p style="font-size:0.88rem;">Perfect for landing pages &amp; simple websites</p>
+          <div class="pricing-price"><sup>₹</sup>5,000</div>
+          <div class="pricing-period">starting price</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Static or simple dynamic website</li>
+            <li><span class="check">✓</span> Mobile responsive design</li>
+            <li><span class="check">✓</span> Contact form integration</li>
+            <li><span class="check">✓</span> 1 week delivery</li>
+            <li><span class="check">✓</span> 7-day support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;" id="price-basic-cta">Get Started →</a>
+        </div>
+
+        <div class="pricing-card featured reveal reveal-delay-1" id="price-standard">
+          <div class="pricing-popular">Most Popular</div>
+          <h3>Standard</h3>
+          <p style="font-size:0.88rem;">Full web app or mobile application</p>
+          <div class="pricing-price"><sup>₹</sup>20,000</div>
+          <div class="pricing-period">starting price</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Full-stack web or mobile app</li>
+            <li><span class="check">✓</span> Custom UI/UX design</li>
+            <li><span class="check">✓</span> Database &amp; backend API</li>
+            <li><span class="check">✓</span> User authentication</li>
+            <li><span class="check">✓</span> 2-4 week delivery</li>
+            <li><span class="check">✓</span> 30-day support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;" id="price-standard-cta">Get Started →</a>
+        </div>
+
+        <div class="pricing-card reveal reveal-delay-2" id="price-ai">
+          <h3>AI Project</h3>
+          <p style="font-size:0.88rem;">AI/ML integration or custom AI tool</p>
+          <div class="pricing-price"><sup>₹</sup>35,000</div>
+          <div class="pricing-period">starting price</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Custom AI model or integration</li>
+            <li><span class="check">✓</span> Full app with AI features</li>
+            <li><span class="check">✓</span> Training &amp; documentation</li>
+            <li><span class="check">✓</span> API access &amp; deployment</li>
+            <li><span class="check">✓</span> 4-6 week delivery</li>
+            <li><span class="check">✓</span> 60-day support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;" id="price-ai-cta">Get Started →</a>
+        </div>
+      </div>
+      <p class="reveal" style="text-align:center;font-size:0.85rem;color:var(--text-grey);margin-top:24px;">
+        💡 All prices are estimates. Final pricing depends on project complexity. <a href="contact.html" style="color:var(--indigo);">Contact us</a> for a free custom quote.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── CTA Banner ── -->
+  <section class="section" id="cta">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div class="section-label" style="background:rgba(255,255,255,0.15);color:white;margin-bottom:20px;">Let's Work Together</div>
+        <h2>Ready to start your project?</h2>
+        <p>First consultation is 100% free. Tell us your idea and we'll figure out the best way to bring it to life.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-lg" style="background:white;color:var(--indigo);font-weight:700;" id="cta-hire">🚀 Book a Free Call</a>
+          <a href="products.html" class="btn btn-lg" style="background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.4);" id="cta-products">See Our Products →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo" style="display:inline-flex;">
+            <span>B</span><span>a</span><span>l</span><span>a</span><span>n</span><span>j</span><span>u</span>
+          </a>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);max-width:240px;margin-top:12px;">
+            A product & service tech startup. We build. We serve. We deliver.
+          </p>
+          <div class="social-links" style="margin-top:20px;">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">⌨</a>
+          </div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#svc-web">Web Development</a></li>
+            <li><a href="#svc-app">App Development</a></li>
+            <li><a href="#svc-ai">AI &amp; ML</a></li>
+            <li><a href="#svc-custom">Custom Software</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html#prod-consultancy">Balanju Consultancy</a></li>
+            <li><a href="products.html#prod-vidhyardhi">Vidhyardhi</a></li>
+            <li><a href="products.html#prod-ourcompiler">OurCompiler</a></li>
+            <li><a href="products.html#prod-fruitrush">Fruit Rush</a></li>
+            <li><a href="products.html#prod-knapsack">Knapsack Editor</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="company.html">Company Info</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Balanju. All rights reserved.</p>
+        <p style="color:rgba(255,255,255,0.4);">Founded with ❤️ in India · Est. 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

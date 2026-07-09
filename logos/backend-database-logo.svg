@@ -1,0 +1,26 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="backendGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4D6D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E63546;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#backendGrad)" rx="40"/>
+  
+  <!-- Database cylinders -->
+  <g transform="translate(45, 30)">
+    <!-- Top cylinder -->
+    <ellipse cx="35" cy="20" rx="28" ry="10" fill="white" opacity="0.85"/>
+    <rect x="7" y="20" width="56" height="25" fill="white" opacity="0.75"/>
+    <ellipse cx="35" cy="45" rx="28" ry="10" fill="white" opacity="0.85"/>
+    
+    <!-- Middle cylinder -->
+    <ellipse cx="35" cy="70" rx="28" ry="10" fill="white" opacity="0.9"/>
+    <rect x="7" y="70" width="56" height="25" fill="white" opacity="0.8"/>
+    <ellipse cx="35" cy="95" rx="28" ry="10" fill="white" opacity="0.9"/>
+    
+    <!-- Connection lines -->
+    <line x1="35" y1="45" x2="35" y2="70" stroke="white" stroke-width="2" opacity="0.6"/>
+  </g>
+</svg>

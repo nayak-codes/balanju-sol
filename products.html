@@ -1,495 +1,557 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products & Services — Balanju</title>
-  <meta name="description" content="Balanju offers custom web development, mobile apps, AI solutions, and more. We also build our own software products." />
+  <title>Our Products — Balanju</title>
+  <meta name="description" content="Explore Balanju's own software products — Balanju Consultancy, Vidhyardhi, OurCompiler, Fruit Rush, Knapsack Editor, and Speed Calculator." />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔷</text></svg>" />
   <style>
-    .service-card {
+    /* ══════════════════════════════
+       PRODUCTS PAGE — PREMIUM DESIGN
+    ══════════════════════════════ */
+
+    /* ── Page Hero ── */
+    .products-hero {
+      padding: calc(var(--nav-h) + 72px) 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+    .products-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% -10%, rgba(108,61,232,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .products-hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108,61,232,0.07);
+      border: 1px solid rgba(108,61,232,0.18);
+      border-radius: var(--radius-pill);
+      padding: 6px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--indigo);
+      margin-bottom: 24px;
+    }
+    .products-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+    .products-hero h1 span {
+      background: linear-gradient(135deg, var(--indigo), var(--coral));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .products-hero p {
+      max-width: 480px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+      color: var(--text-grey);
+    }
+
+    /* ── Products Layout ── */
+    .products-section {
+      padding: 80px 0 100px;
+      background: #FAFAFA;
+    }
+
+    /* ── FEATURED CARD (Balanju Consultancy) ── */
+    .prod-featured {
       background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 32px 28px;
+      border: 1.5px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 420px;
+      box-shadow: 0 1px 3px rgba(26,17,40,0.08), 0 1px 2px rgba(0,0,0,0.04);
       transition: var(--transition);
+      background: linear-gradient(135deg, #FAFBFF 0%, #FFFFFF 100%);
+    }
+    .prod-featured:hover {
+      box-shadow: 0 16px 48px rgba(108,61,232,0.14);
+      transform: translateY(-4px);
+      border-color: rgba(108,61,232,0.4);
+    }
+    .prod-featured .pf-left {
+      padding: 56px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .prod-featured .pf-right {
+      background: linear-gradient(135deg, #6C3DE8 0%, #9B35C8 60%, #FF4D6D 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
       overflow: hidden;
     }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-      border-color: transparent;
+    .pf-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-    .service-card .icon-wrap {
-      width: 60px; height: 60px;
-      border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.8rem;
-      margin-bottom: 18px;
+    .pf-right .big-icon {
+      font-size: 7rem;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.25));
+      animation: floatIcon 5s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      min-height: 180px;
     }
-    .service-card h3 { margin-bottom: 10px; }
-    .service-card p  { font-size: 0.9rem; margin-bottom: 18px; }
-    .tech-tag {
-      display: inline-block;
-      font-size: 0.72rem;
+    @keyframes floatIcon {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-14px); }
+    }
+    @media(max-width:760px) {
+      .prod-featured { grid-template-columns: 1fr; min-height: auto; }
+      .prod-featured .pf-left { padding: 40px 28px; }
+      .prod-featured .pf-right { height: 240px; }
+    }
+
+    /* ── 2-col grid cards ── */
+    .prod-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    @media(max-width:720px) { .prod-grid-2 { grid-template-columns: 1fr; } }
+
+    /* ── 3-col grid cards ── */
+    .prod-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    @media(max-width:900px) { .prod-grid-3 { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:580px)  { .prod-grid-3 { grid-template-columns: 1fr; } }
+
+    /* ── Standard Product Card ── */
+    .prod-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 22px;
+      padding: 40px 36px 36px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: 0 1px 3px rgba(26,17,40,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      background: linear-gradient(135deg, #FAFBFF 0%, #FFFFFF 100%);
+    }
+    .prod-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(108,61,232,0.15);
+      border-color: rgba(108,61,232,0.35);
+    }
+    /* Accent top line */
+    .prod-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 22px 22px 0 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .prod-card:hover::after { opacity: 1; }
+    .prod-card[data-color="coral"]::after   { background: linear-gradient(90deg, var(--coral), #f472b6); }
+    .prod-card[data-color="amber"]::after   { background: linear-gradient(90deg, var(--amber), #FBBF24); }
+    .prod-card[data-color="mint"]::after    { background: linear-gradient(90deg, var(--mint), #34d399); }
+    .prod-card[data-color="purple"]::after  { background: linear-gradient(90deg, #8B5CF6, var(--indigo)); }
+
+    /* ── App Icon ── */
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    }
+
+    /* ── Status Badge ── */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+      width: fit-content;
+      transition: var(--transition);
+    }
+    .status-pill .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+    .status-pill.live     { background: linear-gradient(135deg, rgba(0,201,167,0.12), rgba(0,201,167,0.08)); color: #059669; border: 1px solid rgba(0,201,167,0.25); }
+    .status-pill.live .dot     { background: #10b981; animation: pulse 2s infinite; }
+    .status-pill.building { background: linear-gradient(135deg, rgba(255,159,28,0.12), rgba(255,159,28,0.08)); color: #d97706; border: 1px solid rgba(255,159,28,0.25); }
+    .status-pill.building .dot { background: var(--amber); animation: pulse 2.5s ease-in-out infinite; }
+    .status-pill.soon     { background: linear-gradient(135deg, rgba(108,61,232,0.12), rgba(108,61,232,0.08)); color: var(--indigo); border: 1px solid rgba(108,61,232,0.25); }
+    .status-pill.soon .dot     { background: var(--indigo); }
+
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.5; transform:scale(1.5); }
+    }
+
+    /* ── Card Typography ── */
+    .prod-type-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .prod-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+    .prod-card p {
+      font-size: 0.88rem;
+      color: var(--text-grey);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    /* ── Tech Tags ── */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    .tag {
+      font-size: 0.68rem;
       font-weight: 600;
       padding: 3px 10px;
       border-radius: var(--radius-pill);
       background: var(--bg-grey);
       color: var(--text-mid);
-      margin: 3px 2px 0;
       border: 1px solid var(--border);
     }
 
-    /* Product in dev */
-    .product-dev-card {
-      background: white;
-      border: 1.5px dashed var(--border);
-      border-radius: var(--radius-md);
-      padding: 28px;
-      transition: var(--transition);
-    }
-    .product-dev-card:hover { border-color: var(--indigo); box-shadow: var(--shadow-sm); }
-    .dev-badge {
+    /* ── Card CTA ── */
+    .card-cta {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      font-size: 0.72rem;
+      gap: 6px;
+      font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 10px;
+      padding: 11px 22px;
       border-radius: var(--radius-pill);
-      margin-bottom: 12px;
-    }
-    .dev-badge.building { background: rgba(255,159,28,0.12); color: var(--amber); }
-    .dev-badge.soon     { background: rgba(108,61,232,0.1);  color: var(--indigo); }
-
-    /* Process steps */
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 0;
-      position: relative;
-    }
-    .process-step {
-      text-align: center;
-      padding: 28px 20px;
-      position: relative;
-    }
-    .process-step:not(:last-child)::after {
-      content: '→';
-      position: absolute;
-      right: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.2rem;
-      color: var(--border);
-    }
-    .step-num {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      font-weight: 800;
-      margin: 0 auto 14px;
-      color: white;
-    }
-    @media(max-width:600px) {
-      .process-step:not(:last-child)::after { display: none; }
-    }
-
-    /* Pricing */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    .pricing-card {
+      border: 1.5px solid var(--border);
       background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
+      color: var(--text-dark);
       transition: var(--transition);
+      text-decoration: none;
+      margin-top: auto;
+      cursor: pointer;
       position: relative;
     }
-    .pricing-card.featured {
-      border-color: var(--indigo);
-      box-shadow: 0 0 0 3px rgba(108,61,232,0.08);
-      transform: scale(1.02);
+    .card-cta:hover {
+      border-color: currentColor;
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(108,61,232,0.15);
     }
-    .pricing-card:hover { box-shadow: var(--shadow-lg); }
-    .pricing-popular {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
+    .card-cta.primary {
       background: var(--indigo);
       color: white;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 5px 16px;
-      border-radius: var(--radius-pill);
+      border-color: var(--indigo);
+      box-shadow: 0 2px 8px rgba(108,61,232,0.25);
     }
-    .pricing-price {
-      font-size: 2.2rem;
-      font-weight: 800;
+    .card-cta.primary:hover { 
+      background: #5a2fd4; 
+      border-color: #5a2fd4; 
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(108,61,232,0.35);
+    }
+
+    /* ── Featured left text ── */
+    .pf-left .status-pill { margin-bottom: 16px; }
+    .pf-left h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
       color: var(--text-dark);
-      margin: 16px 0 4px;
     }
-    .pricing-price sup { font-size: 1rem; vertical-align: top; margin-top: 10px; }
-    .pricing-period { font-size: 0.85rem; color: var(--text-grey); }
-    .pricing-features { list-style: none; margin: 20px 0 28px; }
-    .pricing-features li {
-      padding: 7px 0;
-      font-size: 0.88rem;
-      display: flex; gap: 8px; align-items: flex-start;
-      border-bottom: 1px solid var(--border);
+    .pf-left p {
+      font-size: 0.95rem;
+      color: var(--text-grey);
+      line-height: 1.75;
+      max-width: 400px;
+      margin-bottom: 24px;
     }
-    .pricing-features li:last-child { border: none; }
-    .pricing-features li .check { color: var(--mint); font-weight: 700; flex-shrink:0; }
+    .pf-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── Bottom CTA strip ── */
+    .prod-cta-strip {
+      margin-top: 56px;
+      background: linear-gradient(135deg, var(--indigo) 0%, #7c3aed 50%, var(--coral) 100%);
+      border-radius: 24px;
+      padding: 56px 48px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .prod-cta-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .prod-cta-strip h2 { color: white; font-size: 1.9rem; margin-bottom: 10px; position:relative; }
+    .prod-cta-strip p  { color: rgba(255,255,255,0.82); max-width: 440px; margin: 0 auto 32px; position:relative; }
+    .prod-cta-strip .btn-row { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
   </style>
 </head>
 <body>
-  <!-- ── Announcement Bar ── -->
-  <div class="announce-bar" id="announceBar" role="banner">
-    🚀 Balanju is now open for client projects! Free consultation available.
-    <a href="contact.html">Book a call →</a>
-    <button class="announce-close" id="announceClose" aria-label="Close announcement">✕</button>
-  </div>
-
 
   <!-- ── Navigation ── -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="logo" aria-label="Balanju Home">
         <span>B</span><span>a</span><span>l</span><span>a</span><span>n</span><span>j</span><span>u</span>
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" role="navigation">
         <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products & Services</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="company.html">Company</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="products.html#pricing" class="nav-link-ghost" id="nav-pricing">Pricing</a>
-        <a href="contact.html" class="btn btn-primary" id="nav-cta">Hire Us →</a>
+        <a href="contact.html" class="btn btn-primary" id="nav-cta">Hire Us</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </nav>
+
+  <!-- ── Mobile Nav ── -->
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
-    <a href="products.html">Products & Services</a>
+    <a href="products.html">Products</a>
+    <a href="services.html">Services</a>
     <a href="about.html">About</a>
     <a href="company.html">Company</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html" class="btn btn-primary btn-lg" style="margin-top:16px;">Hire Us</a>
   </div>
 
-  <!-- ── Page Hero ── -->
-  <section class="page-hero">
+  <!-- ── Hero ── -->
+  <section class="products-hero" id="page-top">
     <div class="container">
-      <div class="section-label reveal">🛠️ Products & Services</div>
-      <h1 class="reveal reveal-delay-1">What Balanju builds<br />& delivers</h1>
-      <p class="reveal reveal-delay-2" style="max-width:520px;margin:16px auto 0;font-size:1.05rem;">
-        We operate on two tracks — building our own products and delivering custom software services to clients. Explore both below.
-      </p>
+      <div class="eyebrow reveal">🚀 Balanju Products</div>
+      <h1 class="reveal reveal-delay-1">We don't just build<br />for clients — we build for <span>the world</span></h1>
+      <p class="reveal reveal-delay-2">5 products in the making — tools, apps, and games that solve real problems and spark joy.</p>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════
-       SERVICES SECTION
-  ════════════════════════════════════ -->
-  <section class="section" id="services">
+  <!-- ── Products ── -->
+  <section class="products-section" id="our-products">
     <div class="container">
-      <div class="text-center reveal" style="margin-bottom:48px;">
-        <div class="section-label" style="color:var(--coral);background:rgba(255,77,109,0.08);">🛠️ Client Services</div>
-        <h2>We build what you need</h2>
-        <p style="max-width:500px;margin:14px auto 0;">Got a project? We'll design, build, and deliver it. From a simple website to a complex AI-powered application.</p>
-      </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;">
+      <!-- ════ 2-col row: Vidhyardhi + OurCompiler ════ -->
+      <div class="prod-grid-2">
 
-        <!-- Web Dev -->
-        <div class="service-card reveal" id="svc-web" data-category="dev">
-          <div class="icon-wrap bg-gradient-blue">🌐</div>
-          <h3>Web Development</h3>
-          <p>Custom websites and web applications — from landing pages to full-stack platforms. Fast, responsive, and SEO-ready.</p>
-          <div>
-            <span class="tech-tag">HTML/CSS</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">PHP</span>
+        <!-- Vidhyardhi -->
+        <div class="prod-card reveal" id="prod-vidhyardhi" data-color="coral">
+          <div class="status-pill live">
+            <span class="dot"></span> Available Now
           </div>
-          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:20px;" id="contact-web">Get a Quote →</a>
-        </div>
-
-        <!-- App Dev -->
-        <div class="service-card reveal reveal-delay-1" id="svc-app" data-category="dev">
-          <div class="icon-wrap bg-gradient-red">📱</div>
-          <h3>Mobile App Development</h3>
-          <p>Android and iOS applications — native or cross-platform. Clean UI, smooth UX, built for performance.</p>
-          <div>
-            <span class="tech-tag">Flutter</span>
-            <span class="tech-tag">React Native</span>
-            <span class="tech-tag">Android</span>
-            <span class="tech-tag">Kotlin</span>
+          <div class="app-icon"><img src="logos/vidhyardhi logo.png" alt="Vidhyardhi" style="width:100%;height:100%;object-fit:contain;border-radius:18px;"></div>
+          <div class="prod-type-label" style="color:var(--coral);">Mobile App · EdTech</div>
+          <h3>Vidhyardhi</h3>
+          <p>A mobile app built for students — smart study tools, timetable planning, notes management, and exam preparation resources. Built by a student, for students.</p>
+          <div class="tag-row">
+            <span class="tag">Flutter</span>
+            <span class="tag">Android</span>
+            <span class="tag">iOS</span>
+            <span class="tag">Firebase</span>
           </div>
-          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:20px;color:var(--coral);border-color:var(--coral);" id="contact-app">Get a Quote →</a>
+          <a href="https://play.google.com/store/apps/details?id=com.vithyarthi.app" target="_blank" rel="noopener noreferrer" class="card-cta primary" style="background:var(--coral);color:white;border-color:var(--coral);" id="prod-vidhyardhi-download">
+            Download on Play Store →
+          </a>
         </div>
 
-        <!-- AI/ML -->
-        <div class="service-card reveal reveal-delay-2" id="svc-ai" data-category="ai">
-          <div class="icon-wrap bg-gradient-yellow">🤖</div>
-          <h3>AI & ML Solutions</h3>
-          <p>Integrate artificial intelligence into your product — chatbots, recommendation engines, image recognition, and more.</p>
-          <div>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">TensorFlow</span>
-            <span class="tech-tag">OpenAI API</span>
-            <span class="tech-tag">FastAPI</span>
+        <!-- OurCompiler -->
+        <div class="prod-card reveal reveal-delay-1" id="prod-ourcompiler" data-color="amber">
+          <div class="status-pill live">
+            <span class="dot"></span> Live Now
           </div>
-          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:20px;color:var(--amber);border-color:var(--amber);" id="contact-ai">Get a Quote →</a>
-        </div>
-
-        <!-- Custom Software -->
-        <div class="service-card reveal" id="svc-custom" data-category="dev">
-          <div class="icon-wrap bg-gradient-green">💻</div>
-          <h3>Custom Software Development</h3>
-          <p>Tailored desktop or web software for your specific business needs — built from scratch, exactly how you want it.</p>
-          <div>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Java</span>
-            <span class="tech-tag">C++</span>
-            <span class="tech-tag">Electron</span>
+          <div class="app-icon"><img src="logos/our-compiler-logo.png" alt="OurCompiler" style="width:100%;height:100%;object-fit:contain;border-radius:18px;"></div>
+          <div class="prod-type-label" style="color:var(--amber);">Web Tool · DevTools</div>
+          <h3>OurCompiler</h3>
+          <p>An online code compiler and IDE — write, run, and share code in multiple languages right from your browser. Fast, clean, built for learners and pros.</p>
+          <div class="tag-row">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Multi-language</span>
           </div>
-          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:20px;color:var(--mint);border-color:var(--mint);" id="contact-custom">Get a Quote →</a>
-        </div>
-
-        <!-- UI/UX Design -->
-        <div class="service-card reveal reveal-delay-1" id="svc-design" data-category="design">
-          <div class="icon-wrap bg-gradient-blue">🎨</div>
-          <h3>UI/UX Design</h3>
-          <p>User interfaces that are beautiful, intuitive, and conversion-focused. Wireframes to pixel-perfect designs.</p>
-          <div>
-            <span class="tech-tag">Figma</span>
-            <span class="tech-tag">Prototyping</span>
-            <span class="tech-tag">Design System</span>
-          </div>
-          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:20px;" id="contact-design">Get a Quote →</a>
-        </div>
-
-        <!-- Database & Backend -->
-        <div class="service-card reveal reveal-delay-2" id="svc-backend" data-category="dev">
-          <div class="icon-wrap bg-gradient-red">🗄️</div>
-          <h3>Backend & Database</h3>
-          <p>APIs, databases, cloud deployment — the engine behind your app. Scalable, secure, and reliable architecture.</p>
-          <div>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">MongoDB</span>
-            <span class="tech-tag">Firebase</span>
-            <span class="tech-tag">AWS</span>
-          </div>
-          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:20px;color:var(--coral);border-color:var(--coral);" id="contact-backend">Get a Quote →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── How We Work ── -->
-  <section class="section-sm bg-light" id="process">
-    <div class="container">
-      <div class="text-center reveal" style="margin-bottom:40px;">
-        <div class="section-label">Our Process</div>
-        <h2>How we deliver your project</h2>
-      </div>
-      <div class="process-steps">
-        <div class="process-step reveal">
-          <div class="step-num bg-gradient-blue">1</div>
-          <h4>Discovery Call</h4>
-          <p style="font-size:0.84rem;">Free 30-min call to understand your idea, goals, and requirements.</p>
-        </div>
-        <div class="process-step reveal reveal-delay-1">
-          <div class="step-num bg-gradient-red">2</div>
-          <h4>Plan & Propose</h4>
-          <p style="font-size:0.84rem;">We send a detailed proposal with timeline, tech stack, and pricing.</p>
-        </div>
-        <div class="process-step reveal reveal-delay-2">
-          <div class="step-num bg-gradient-yellow">3</div>
-          <h4>Build & Update</h4>
-          <p style="font-size:0.84rem;">Development begins with regular progress updates and demos.</p>
-        </div>
-        <div class="process-step reveal reveal-delay-3">
-          <div class="step-num bg-gradient-green">4</div>
-          <h4>Deliver & Support</h4>
-          <p style="font-size:0.84rem;">Final delivery with docs, handover, and 30-day free support.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════
-       PRODUCTS SECTION
-  ════════════════════════════════════ -->
-  <section class="section" id="our-products">
-    <div class="container">
-      <div class="text-center reveal" style="margin-bottom:48px;">
-        <div class="section-label" style="color:var(--indigo);background:rgba(108,61,232,0.08);">🚀 Our Products</div>
-        <h2>What we're building</h2>
-        <p style="max-width:500px;margin:14px auto 0;">Alongside client work, we're building our own products. These are ideas we believe in — and we're turning them into real software.</p>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;">
-
-        <div class="product-dev-card reveal" id="prod-1">
-          <div class="dev-badge building">🔨 In Development</div>
-          <div style="font-size:2.2rem;margin-bottom:10px;">🔍</div>
-          <h3>Balanju Search</h3>
-          <p style="font-size:0.9rem;">An AI-powered smart search tool for small businesses — find anything in your files, emails, and databases instantly.</p>
-          <div style="margin-top:12px;">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">AI / NLP</span>
-            <span class="tech-tag">React</span>
-          </div>
-        </div>
-
-        <div class="product-dev-card reveal reveal-delay-1" id="prod-2">
-          <div class="dev-badge building">🔨 In Development</div>
-          <div style="font-size:2.2rem;margin-bottom:10px;">📋</div>
-          <h3>Balanju Tasks</h3>
-          <p style="font-size:0.9rem;">A simple, powerful project management tool designed for small teams and freelancers — no bloat, just focus.</p>
-          <div style="margin-top:12px;">
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">MongoDB</span>
-            <span class="tech-tag">React</span>
-          </div>
-        </div>
-
-        <div class="product-dev-card reveal reveal-delay-2" id="prod-3">
-          <div class="dev-badge soon">⏳ Coming Soon</div>
-          <div style="font-size:2.2rem;margin-bottom:10px;">🤖</div>
-          <h3>Balanju AI Assistant</h3>
-          <p style="font-size:0.9rem;">A customisable AI chatbot platform — embed a smart assistant on any website with zero coding required.</p>
-          <div style="margin-top:12px;">
-            <span class="tech-tag">OpenAI</span>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">JavaScript</span>
-          </div>
-        </div>
-
-        <div class="product-dev-card reveal" id="prod-4">
-          <div class="dev-badge soon">⏳ Coming Soon</div>
-          <div style="font-size:2.2rem;margin-bottom:10px;">📊</div>
-          <h3>Balanju Analytics</h3>
-          <p style="font-size:0.9rem;">Lightweight website analytics for startups — privacy-first, no cookie banners, beautiful dashboards.</p>
-          <div style="margin-top:12px;">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Vue.js</span>
-            <span class="tech-tag">PostgreSQL</span>
-          </div>
+          <a href="https://ourcompiler.com" target="_blank" rel="noopener noreferrer" class="card-cta primary" style="background:var(--amber);color:white;border-color:var(--amber);" id="prod-compiler-visit">
+            Try Now →
+          </a>
         </div>
 
       </div>
 
-      <div class="text-center reveal" style="margin-top:36px;">
-        <p style="font-size:0.9rem;color:var(--text-grey);">More products in the pipeline 🚧 — stay tuned!</p>
-        <a href="contact.html" class="btn btn-outline btn-lg" style="margin-top:16px;" id="notify-btn">Get Notified When We Launch →</a>
-      </div>
-    </div>
-  </section>
+      <!-- ════ 2-col row: Balanju Consultancy + Fruit Rush ════ -->
+      <div class="prod-grid-2">
 
-  <!-- ── Pricing ── -->
-  <section class="section bg-light" id="pricing">
-    <div class="container">
-      <div class="text-center reveal" style="margin-bottom:48px;">
-        <div class="section-label">💰 Pricing</div>
-        <h2>Honest, transparent pricing</h2>
-        <p style="max-width:440px;margin:12px auto 0;">No hidden costs. Startup-friendly rates. Every project is custom-quoted — these are rough starting points.</p>
-      </div>
-      <div class="pricing-grid">
-        <div class="pricing-card reveal" id="price-basic">
-          <h3>Starter</h3>
-          <p style="font-size:0.88rem;">Perfect for landing pages & simple websites</p>
-          <div class="pricing-price"><sup>₹</sup>5,000</div>
-          <div class="pricing-period">starting price</div>
-          <ul class="pricing-features">
-            <li><span class="check">✓</span> Static or simple dynamic website</li>
-            <li><span class="check">✓</span> Mobile responsive design</li>
-            <li><span class="check">✓</span> Contact form integration</li>
-            <li><span class="check">✓</span> 1 week delivery</li>
-            <li><span class="check">✓</span> 7-day support</li>
-          </ul>
-          <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;" id="price-basic-cta">Get Started →</a>
+        <!-- Balanju Consultancy -->
+        <div class="prod-card reveal" id="prod-consultancy" data-color="indigo">
+          <div class="status-pill live">
+            <span class="dot"></span> Live & Active
+          </div>
+          <div class="app-icon"><img src="logos/balanju-consultancy-logo.png" alt="Balanju Consultancy" style="width:100%;height:100%;object-fit:contain;border-radius:18px;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.10));"></div>
+          <div class="prod-type-label" style="color:var(--indigo);">Consultancy · Services</div>
+          <h3>Balanju Consultancy</h3>
+          <p>We partner with businesses, startups, and students to build custom software solutions. From websites to full-stack apps and AI tools, we take your idea from concept to launch.</p>
+          <div class="tag-row">
+            <span class="tag">Web Dev</span>
+            <span class="tag">Mobile Apps</span>
+            <span class="tag">AI / ML</span>
+            <span class="tag">UI/UX Design</span>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:auto;">
+            <a href="https://balanju.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-cta primary" style="flex:1;" id="prod-consult-visit">Visit Site →</a>
+            <a href="services.html" class="card-cta" style="flex:1;" id="prod-consult-services">Learn More</a>
+          </div>
         </div>
 
-        <div class="pricing-card featured reveal reveal-delay-1" id="price-standard">
-          <div class="pricing-popular">Most Popular</div>
-          <h3>Standard</h3>
-          <p style="font-size:0.88rem;">Full web app or mobile application</p>
-          <div class="pricing-price"><sup>₹</sup>20,000</div>
-          <div class="pricing-period">starting price</div>
-          <ul class="pricing-features">
-            <li><span class="check">✓</span> Full-stack web or mobile app</li>
-            <li><span class="check">✓</span> Custom UI/UX design</li>
-            <li><span class="check">✓</span> Database & backend API</li>
-            <li><span class="check">✓</span> User authentication</li>
-            <li><span class="check">✓</span> 2-4 week delivery</li>
-            <li><span class="check">✓</span> 30-day support</li>
-          </ul>
-          <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;" id="price-standard-cta">Get Started →</a>
-        </div>
-
-        <div class="pricing-card reveal reveal-delay-2" id="price-ai">
-          <h3>AI Project</h3>
-          <p style="font-size:0.88rem;">AI/ML integration or custom AI tool</p>
-          <div class="pricing-price"><sup>₹</sup>35,000</div>
-          <div class="pricing-period">starting price</div>
-          <ul class="pricing-features">
-            <li><span class="check">✓</span> Custom AI model or integration</li>
-            <li><span class="check">✓</span> Full application with AI features</li>
-            <li><span class="check">✓</span> Training & documentation</li>
-            <li><span class="check">✓</span> API access & deployment</li>
-            <li><span class="check">✓</span> 4-6 week delivery</li>
-            <li><span class="check">✓</span> 60-day support</li>
-          </ul>
-          <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;" id="price-ai-cta">Get Started →</a>
+        <!-- Fruit Rush -->
+        <div class="prod-card reveal reveal-delay-1" id="prod-fruitrush" data-color="mint">
+          <div class="status-pill building">
+            <span class="dot"></span> Under Development
+          </div>
+          <div class="app-icon"><img src="logos/Fruit-rush-logo.png" alt="Fruit Rush" style="width:100%;height:100%;object-fit:contain;border-radius:18px;"></div>
+          <div class="prod-type-label" style="color:var(--mint);">Mobile Game · Casual</div>
+          <h3>Fruit Rush</h3>
+          <p>A fun and addictive casual mobile game — slice fruits, dodge bombs, beat high scores! Built with smooth animations and satisfying gameplay for all ages.</p>
+          <div class="tag-row">
+            <span class="tag">Unity</span>
+            <span class="tag">Android</span>
+            <span class="tag">iOS</span>
+            <span class="tag">Casual Gaming</span>
+          </div>
+          <a href="contact.html?ref=fruitrush" class="card-cta" style="color:var(--mint);border-color:var(--mint);" id="prod-fruitrush-notify">
+            Get Notified <span style="font-size:1rem;">→</span>
+          </a>
         </div>
       </div>
-      <p class="reveal" style="text-align:center;font-size:0.85rem;color:var(--text-grey);margin-top:24px;">
-        💡 All prices are estimates. Final pricing depends on project complexity. <a href="contact.html" style="color:var(--indigo);">Contact us</a> for a free custom quote.
-      </p>
-    </div>
-  </section>
 
-  <!-- ── CTA ── -->
-  <section class="section" style="text-align:center;">
-    <div class="container" style="max-width:600px;">
-      <h2 class="reveal">Ready to start your project?</h2>
-      <p class="reveal reveal-delay-1" style="margin:16px 0 32px;">Let's have a free call and figure out the best way to bring your idea to life.</p>
-      <a href="contact.html" class="btn btn-primary btn-lg reveal reveal-delay-2" id="bottom-cta">Book a Free Consultation 🚀</a>
-    </div>
+      <!-- ════ 2-col row: Knapsack Editor + Speed Calculator ════ -->
+      <div class="prod-grid-2">
+
+        <!-- Knapsack Editor -->
+        <div class="prod-card reveal" id="prod-knapsack" data-color="purple">
+          <div class="status-pill building">
+            <span class="dot"></span> Under Development
+          </div>
+          <div class="app-icon"><img src="logos/knapsack-editor-logo1.png" alt="Knapsack Editor" style="width:100%;height:100%;object-fit:contain;border-radius:18px;"></div>
+          <div class="prod-type-label" style="color:#8B5CF6;">Web Tool · Productivity</div>
+          <h3>Knapsack Editor</h3>
+          <p>A minimalist, distraction-free web-based text and markdown editor. Write notes, docs, or blog posts with a clean interface that completely gets out of your way.</p>
+          <div class="tag-row">
+            <span class="tag">React</span>
+            <span class="tag">Markdown</span>
+            <span class="tag">PWA</span>
+            <span class="tag">Offline Support</span>
+          </div>
+          <a href="contact.html?ref=knapsack" class="card-cta" style="color:#8B5CF6;border-color:#8B5CF6;" id="prod-knapsack-notify">
+            Get Notified <span style="font-size:1rem;">→</span>
+          </a>
+        </div>
+
+        <!-- Speed Calculator -->
+        <div class="prod-card reveal reveal-delay-1" id="prod-speedcalc" data-color="red">
+          <div class="status-pill live">
+            <span class="dot"></span> Live Now
+          </div>
+          <div class="app-icon"><img src="logos/live-calculator.png" alt="Speed Calculator" style="width:100%;height:100%;object-fit:contain;border-radius:18px;"></div>
+          <div class="prod-type-label" style="color:#E63946;">Web Tool · Utilities</div>
+          <h3>Speed Calculator</h3>
+          <p>Calculate your internet speed in real-time — simple, fast, and accurate. Test download/upload speeds and get detailed network diagnostics with visual gauges and live metrics.</p>
+          <div class="tag-row">
+            <span class="tag">React</span>
+            <span class="tag">WebRTC</span>
+            <span class="tag">Real-time</span>
+            <span class="tag">Analytics</span>
+          </div>
+          <a href="https://speed-calculator.example.com" target="_blank" rel="noopener noreferrer" class="card-cta primary" style="background:#E63946;color:white;border-color:#E63946;" id="prod-speedcalc-visit">
+            Test Speed →
+          </a>
+        </div>
+
+      </div>
+
+      <!-- ════ Bottom CTA ════ -->
+      <div class="prod-cta-strip reveal">
+        <h2>Always building something new 🚧</h2>
+        <p>Have an idea you want us to build? Or want to collaborate on one of our products? Let's talk.</p>
+        <div class="btn-row">
+          <a href="contact.html" class="btn btn-lg" style="background:white;color:var(--indigo);font-weight:800;" id="prod-collab">💡 Collaborate With Us</a>
+          <a href="services.html" class="btn btn-lg" style="background:rgba(255,255,255,0.12);color:white;border:1.5px solid rgba(255,255,255,0.35);" id="prod-services-link">Our Services →</a>
+        </div>
+      </div>
   </section>
 
   <!-- ── Footer ── -->
-  <footer class="footer">
+  <footer class="footer" id="footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <a href="index.html" class="logo" style="display:inline-flex;">
             <span>B</span><span>a</span><span>l</span><span>a</span><span>n</span><span>j</span><span>u</span>
           </a>
-          <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);max-width:240px;margin-top:12px;">We build. We serve. We deliver.</p>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);max-width:240px;margin-top:12px;">
+            A product & service tech startup. We build. We serve. We deliver.
+          </p>
           <div class="social-links" style="margin-top:20px;">
             <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
             <a href="#" class="social-link" aria-label="LinkedIn">in</a>
@@ -497,20 +559,23 @@
           </div>
         </div>
         <div>
-          <h4>Services</h4>
+          <h4>Products</h4>
           <ul>
-            <li><a href="#svc-web">Web Development</a></li>
-            <li><a href="#svc-app">App Development</a></li>
-            <li><a href="#svc-ai">AI & ML</a></li>
-            <li><a href="#svc-custom">Custom Software</a></li>
+            <li><a href="#prod-consultancy">Balanju Consultancy</a></li>
+            <li><a href="#prod-vidhyardhi">Vidhyardhi</a></li>
+            <li><a href="#prod-ourcompiler">OurCompiler</a></li>
+            <li><a href="#prod-fruitrush">Fruit Rush</a></li>
+            <li><a href="#prod-knapsack">Knapsack Editor</a></li>
+            <li><a href="#prod-speedcalc">Speed Calculator</a></li>
           </ul>
         </div>
         <div>
-          <h4>Products</h4>
+          <h4>Services</h4>
           <ul>
-            <li><a href="#prod-1">Balanju Search</a></li>
-            <li><a href="#prod-2">Balanju Tasks</a></li>
-            <li><a href="#prod-3">Balanju AI</a></li>
+            <li><a href="services.html">Web Development</a></li>
+            <li><a href="services.html">App Development</a></li>
+            <li><a href="services.html">AI &amp; ML</a></li>
+            <li><a href="services.html">Custom Software</a></li>
           </ul>
         </div>
         <div>
@@ -524,7 +589,7 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 Balanju. All rights reserved.</p>
-        <p style="color:rgba(255,255,255,0.4);">Founded with ❤️ in India</p>
+        <p style="color:rgba(255,255,255,0.4);">Founded with ❤️ in India · Est. 2026</p>
       </div>
     </div>
   </footer>
@@ -532,4 +597,3 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-
