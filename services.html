@@ -3,11 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — Balanju</title>
-  <meta name="description" content="Balanju offers custom web development, mobile apps, AI/ML solutions, UI/UX design, and backend development for startups and businesses." />
+  <title>Services — Balanju Solutions</title>
+  <meta name="description" content="Balanju Solutions offers custom web development, mobile apps, AI/ML solutions, UI/UX design, and backend development for startups and businesses." />
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#6C3DE8" />
+
+  <!-- Open Graph / SEO Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://balanju-solutions.vercel.app/services.html" />
+  <meta property="og:title" content="Services — Balanju Solutions" />
+  <meta property="og:description" content="Balanju Solutions offers custom web development, mobile apps, AI/ML solutions, UI/UX design, and backend development for startups and businesses." />
+  <meta property="og:image" content="https://balanju-solutions.vercel.app/balanju-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Services — Balanju Solutions" />
+  <meta name="twitter:description" content="Balanju Solutions offers custom web development, mobile apps, AI/ML solutions, UI/UX design, and backend development for startups and businesses." />
+  <meta name="twitter:image" content="https://balanju-solutions.vercel.app/balanju-logo.png" />
+
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔷</text></svg>" />
   <style>
+    /* ── Logo Styling ── */
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(108, 61, 232, 0.2);
+      flex-shrink: 0;
+    }
+
+    .logo-img-footer {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, var(--indigo), var(--coral));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-wrapper:hover .logo-text {
+      opacity: 0.85;
+    }
+
+    .logo-wrapper:hover .logo-img {
+      box-shadow: 0 4px 16px rgba(108, 61, 232, 0.3);
+    }
+
     .service-card {
       background: white;
       border: 1px solid var(--border);
@@ -153,8 +216,9 @@
   <!-- ── Navigation ── -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="index.html" class="logo" aria-label="Balanju Home">
-        <span>B</span><span>a</span><span>l</span><span>a</span><span>n</span><span>j</span><span>u</span>
+      <a href="index.html" class="logo-wrapper" aria-label="Balanju Solutions Home">
+        <img src="logos/balanju real logo.png" alt="Balanju Solutions Logo" class="logo-img">
+        <span class="logo-text">Balanju Solutions</span>
       </a>
       <ul class="nav-links" role="navigation">
         <li><a href="index.html">Home</a></li>
@@ -454,8 +518,9 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="logo" style="display:inline-flex;">
-            <span>B</span><span>a</span><span>l</span><span>a</span><span>n</span><span>j</span><span>u</span>
+          <a href="index.html" class="logo-wrapper" style="display:inline-flex;align-items:center;gap:8px;">
+            <img src="logos/balanju real logo.png" alt="Balanju Solutions Logo" class="logo-img-footer">
+            <span class="logo-text">Balanju Solutions</span>
           </a>
           <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);max-width:240px;margin-top:12px;">
             A product & service tech startup. We build. We serve. We deliver.
