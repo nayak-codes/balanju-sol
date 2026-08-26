@@ -30,37 +30,49 @@
     .logo-wrapper {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 9px;
       text-decoration: none;
       transition: var(--transition);
     }
 
     .logo-img {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 2px 8px rgba(108, 61, 232, 0.2);
+      box-shadow: 0 2px 10px rgba(108, 61, 232, 0.22);
       flex-shrink: 0;
     }
 
     .logo-img-footer {
-      width: 40px;
-      height: 40px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
     }
 
     .logo-text {
-      font-size: 1.4rem;
-      font-weight: 900;
-      letter-spacing: -0.8px;
-      color: var(--text-dark);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.4px;
       background: linear-gradient(135deg, var(--indigo), var(--coral));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      line-height: 1;
+    }
+
+    .logo-sub {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text-grey);
+      -webkit-text-fill-color: var(--text-grey);
+      margin-top: 2px;
+      line-height: 1;
     }
 
     .logo-wrapper:hover .logo-text {
@@ -68,7 +80,8 @@
     }
 
     .logo-wrapper:hover .logo-img {
-      box-shadow: 0 4px 16px rgba(108, 61, 232, 0.3);
+      box-shadow: 0 4px 14px rgba(108, 61, 232, 0.28);
+      transform: scale(1.05);
     }
 
     .service-card {
@@ -217,8 +230,11 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="logo-wrapper" aria-label="Balanju Solutions Home">
-        <img src="logos/balanju real logo.png" alt="Balanju Solutions Logo" class="logo-img">
-        <span class="logo-text">Balanju Solutions</span>
+        <img src="Balanju solutions logo.png" alt="Balanju Solutions Logo" class="logo-img">
+        <div>
+          <span class="logo-text">Balanju</span>
+          <span class="logo-sub">Solutions</span>
+        </div>
       </a>
       <ul class="nav-links" role="navigation">
         <li><a href="index.html">Home</a></li>
@@ -519,8 +535,11 @@
       <div class="footer-grid">
         <div>
           <a href="index.html" class="logo-wrapper" style="display:inline-flex;align-items:center;gap:8px;">
-            <img src="logos/balanju real logo.png" alt="Balanju Solutions Logo" class="logo-img-footer">
-            <span class="logo-text">Balanju Solutions</span>
+            <img src="Balanju solutions logo.png" alt="Balanju Solutions Logo" class="logo-img-footer">
+            <div>
+              <span class="logo-text" style="font-size:1.1rem;">Balanju</span>
+              <span class="logo-sub">Solutions</span>
+            </div>
           </a>
           <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);max-width:240px;margin-top:12px;">
             A product & service tech startup. We build. We serve. We deliver.

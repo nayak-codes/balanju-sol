@@ -19,11 +19,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://balanju-solutions.vercel.app/" />
   <meta property="og:title" content="Balanju Solutions — We Build. We Serve. We Deliver." />
-  <meta property="og:description" content="Balanju Solutions is a fresh tech startup offering custom software development services and building innovative products." />
+  <meta property="og:description"
+    content="Balanju Solutions is a fresh tech startup offering custom software development services and building innovative products." />
   <meta property="og:image" content="https://balanju-solutions.vercel.app/balanju-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Balanju Solutions — We Build. We Serve. We Deliver." />
-  <meta name="twitter:description" content="Balanju Solutions is a fresh tech startup offering custom software development services and building innovative products." />
+  <meta name="twitter:description"
+    content="Balanju Solutions is a fresh tech startup offering custom software development services and building innovative products." />
   <meta name="twitter:image" content="https://balanju-solutions.vercel.app/balanju-logo.png" />
 
   <link rel="stylesheet" href="css/style.css" />
@@ -32,37 +34,49 @@
     .logo-wrapper {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 9px;
       text-decoration: none;
       transition: var(--transition);
     }
 
     .logo-img {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 2px 8px rgba(108, 61, 232, 0.2);
+      box-shadow: 0 2px 10px rgba(108, 61, 232, 0.22);
       flex-shrink: 0;
     }
 
     .logo-img-footer {
-      width: 40px;
-      height: 40px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
     }
 
     .logo-text {
-      font-size: 1.4rem;
-      font-weight: 900;
-      letter-spacing: -0.8px;
-      color: var(--text-dark);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.4px;
       background: linear-gradient(135deg, var(--indigo), var(--coral));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      line-height: 1;
+    }
+
+    .logo-sub {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text-grey);
+      -webkit-text-fill-color: var(--text-grey);
+      margin-top: 2px;
+      line-height: 1;
     }
 
     .logo-wrapper:hover .logo-text {
@@ -70,7 +84,8 @@
     }
 
     .logo-wrapper:hover .logo-img {
-      box-shadow: 0 4px 16px rgba(108, 61, 232, 0.3);
+      box-shadow: 0 4px 14px rgba(108, 61, 232, 0.28);
+      transform: scale(1.05);
     }
 
     /* ── Hero full-bg canvas ── */
@@ -83,10 +98,12 @@
       pointer-events: none;
       z-index: 0;
     }
+
     .hero-content {
       position: relative;
       z-index: 1;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -318,14 +335,14 @@
       position: relative;
       overflow: hidden;
       transition: var(--transition);
-      box-shadow: 0 1px 3px rgba(26,17,40,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      box-shadow: 0 1px 3px rgba(26, 17, 40, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
       background: linear-gradient(135deg, #FAFBFF 0%, #FFFFFF 100%);
     }
 
     .product-showcase-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 40px rgba(108,61,232,0.14);
-      border-color: rgba(108,61,232,0.35);
+      box-shadow: 0 12px 40px rgba(108, 61, 232, 0.14);
+      border-color: rgba(108, 61, 232, 0.35);
     }
 
     /* Status badge */
@@ -353,9 +370,9 @@
     }
 
     .prod-showcase-badge.live {
-      background: linear-gradient(135deg, rgba(0,201,167,0.12), rgba(0,201,167,0.08));
+      background: linear-gradient(135deg, rgba(0, 201, 167, 0.12), rgba(0, 201, 167, 0.08));
       color: #059669;
-      border: 1px solid rgba(0,201,167,0.25);
+      border: 1px solid rgba(0, 201, 167, 0.25);
     }
 
     .prod-showcase-badge.live::before {
@@ -364,9 +381,9 @@
     }
 
     .prod-showcase-badge.building {
-      background: linear-gradient(135deg, rgba(255,159,28,0.12), rgba(255,159,28,0.08));
+      background: linear-gradient(135deg, rgba(255, 159, 28, 0.12), rgba(255, 159, 28, 0.08));
       color: #d97706;
-      border: 1px solid rgba(255,159,28,0.25);
+      border: 1px solid rgba(255, 159, 28, 0.25);
     }
 
     .prod-showcase-badge.building::before {
@@ -375,8 +392,17 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.5); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.5);
+      }
     }
 
     /* Icon container */
@@ -389,7 +415,7 @@
       justify-content: center;
       font-size: 2.2rem;
       margin-bottom: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
       margin-top: 12px;
     }
 
@@ -465,7 +491,7 @@
       background: var(--indigo);
       border-color: var(--indigo);
       transform: translateX(3px);
-      box-shadow: 0 4px 12px rgba(108,61,232,0.25);
+      box-shadow: 0 4px 12px rgba(108, 61, 232, 0.25);
     }
   </style>
 </head>
@@ -476,8 +502,11 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="logo-wrapper" aria-label="Balanju Solutions Home">
-        <img src="logos/balanju real logo.png" alt="Balanju Solutions Logo" class="logo-img">
-        <span class="logo-text">Balanju Solutions</span>
+        <img src="Balanju solutions logo.png" alt="Balanju Solutions Logo" class="logo-img">
+        <div>
+          <span class="logo-text">Balanju</span>
+          <span class="logo-sub">Solutions</span>
+        </div>
       </a>
       <ul class="nav-links" role="navigation">
         <li><a href="index.html">Home</a></li>
@@ -588,7 +617,8 @@
       <div class="text-center reveal" style="margin-bottom:56px;">
         <div class="section-label">🚀 Featured Products</div>
         <h2>See what we're building</h2>
-        <p style="max-width:480px;margin:12px auto 0;">From consultancy services to indie apps — here's what Balanju is creating.</p>
+        <p style="max-width:480px;margin:12px auto 0;">From consultancy services to indie apps — here's what Balanju is
+          creating.</p>
       </div>
 
       <!-- Products Grid -->
@@ -596,57 +626,69 @@
         <!-- Balanju Consultancy -->
         <div class="product-showcase-card reveal" id="home-prod-consultancy">
           <div class="prod-showcase-badge live">Live</div>
-          <div class="prod-showcase-icon" style="background:linear-gradient(135deg,#6C3DE8,#5a2fd4);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">🏢</div>
+          <div class="prod-showcase-icon"
+            style="background:linear-gradient(135deg,#6C3DE8,#5a2fd4);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">
+            🏢</div>
           <h3>Balanju Consultancy</h3>
-          <p class="prod-showcase-desc">Custom software development & consulting services. We build websites, mobile apps, and AI solutions for businesses.</p>
+          <p class="prod-showcase-desc">Custom software development & consulting services. We build websites, mobile
+            apps, and AI solutions for businesses.</p>
           <div class="prod-showcase-tags">
             <span>Web Dev</span>
             <span>Mobile Apps</span>
             <span>AI/ML</span>
           </div>
-          <a href="https://balanju.vercel.app/" target="_blank" rel="noopener noreferrer" class="prod-showcase-link">Visit →</a>
+          <a href="https://balanju.vercel.app/" target="_blank" rel="noopener noreferrer"
+            class="prod-showcase-link">Visit →</a>
         </div>
 
         <!-- Vidhyardhi -->
         <div class="product-showcase-card reveal reveal-delay-1" id="home-prod-vidhyardhi">
           <div class="prod-showcase-badge live">Available</div>
           <div class="prod-showcase-icon vidhyardhi-logo">
-            <img src="logos/vidhyardhi logo.png" alt="Vidhyardhi Logo" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+            <img src="logos/vidhyardhi logo.png" alt="Vidhyardhi Logo"
+              style="width:100%;height:100%;object-fit:contain;padding:8px;">
           </div>
           <h3>Vidhyardhi</h3>
-          <p class="prod-showcase-desc">Smart study app for students. Timetable planning, notes, and exam prep resources built for learning.</p>
+          <p class="prod-showcase-desc">Smart study app for students. Timetable planning, notes, and exam prep resources
+            built for learning.</p>
           <div class="prod-showcase-tags">
             <span>Flutter</span>
             <span>Android</span>
             <span>iOS</span>
           </div>
-          <a href="https://play.google.com/store/apps/details?id=com.vithyarthi.app" target="_blank" rel="noopener noreferrer" class="prod-showcase-link">Download →</a>
+          <a href="https://play.google.com/store/apps/details?id=com.vithyarthi.app" target="_blank"
+            rel="noopener noreferrer" class="prod-showcase-link">Download →</a>
         </div>
 
         <!-- OurCompiler -->
         <div class="product-showcase-card reveal reveal-delay-2" id="home-prod-ourcompiler">
           <div class="prod-showcase-badge live">Live</div>
           <div class="prod-showcase-icon ourcompiler-logo">
-            <img src="logos/our-compiler-logo.png" alt="OurCompiler Logo" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+            <img src="logos/our-compiler-logo.png" alt="OurCompiler Logo"
+              style="width:100%;height:100%;object-fit:contain;padding:8px;">
           </div>
           <h3>OurCompiler</h3>
-          <p class="prod-showcase-desc">Online code compiler & IDE. Write and run code in multiple languages directly in your browser.</p>
+          <p class="prod-showcase-desc">Online code compiler & IDE. Write and run code in multiple languages directly in
+            your browser.</p>
           <div class="prod-showcase-tags">
             <span>React</span>
             <span>Node.js</span>
             <span>Multi-language</span>
           </div>
-          <a href="https://ourcompiler.com" target="_blank" rel="noopener noreferrer" class="prod-showcase-link">Try It →</a>
+          <a href="https://ourcompiler.com" target="_blank" rel="noopener noreferrer" class="prod-showcase-link">Try It
+            →</a>
         </div>
 
         <!-- Fruit Rush -->
         <div class="product-showcase-card reveal" id="home-prod-fruitrush">
           <div class="prod-showcase-badge building">Building</div>
           <div class="prod-showcase-icon fruitrush-logo">
-            <img src="logos/Fruit-rush-logo.png" alt="Fruit Rush Logo" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+            <img src="logos/Fruit-rush-logo.png" alt="Fruit Rush Logo"
+              style="width:100%;height:100%;object-fit:contain;padding:8px;">
           </div>
           <h3>Fruit Rush</h3>
-          <p class="prod-showcase-desc">Casual mobile game. Slice fruits, dodge bombs, and chase high scores with smooth gameplay.</p>
+          <p class="prod-showcase-desc">Casual mobile game. Slice fruits, dodge bombs, and chase high scores with smooth
+            gameplay.</p>
           <div class="prod-showcase-tags">
             <span>Unity</span>
             <span>Gaming</span>
@@ -658,9 +700,12 @@
         <!-- Knapsack Editor -->
         <div class="product-showcase-card reveal reveal-delay-1" id="home-prod-knapsack">
           <div class="prod-showcase-badge building">Building</div>
-          <div class="prod-showcase-icon" style="background:linear-gradient(135deg,#8B5CF6,#6C3DE8);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">✏️</div>
+          <div class="prod-showcase-icon"
+            style="background:linear-gradient(135deg,#8B5CF6,#6C3DE8);display:flex;align-items:center;justify-content:center;font-size:2.2rem;">
+            ✏️</div>
           <h3>Knapsack Editor</h3>
-          <p class="prod-showcase-desc">Minimalist markdown editor. Distraction-free writing for notes, docs, and blog posts.</p>
+          <p class="prod-showcase-desc">Minimalist markdown editor. Distraction-free writing for notes, docs, and blog
+            posts.</p>
           <div class="prod-showcase-tags">
             <span>React</span>
             <span>Markdown</span>
@@ -884,25 +929,25 @@
       /* ── Resize ── */
       let W, H;
       function resize() {
-        W = canvas.width  = hero.clientWidth;
+        W = canvas.width = hero.clientWidth;
         H = canvas.height = hero.clientHeight;
         initParticles();
       }
       window.addEventListener('resize', resize);
 
       /* ── Config ── */
-      const COUNT         = 90;     // number of nodes
-      const CONNECT_DIST  = 130;    // px — max line distance
-      const CURSOR_DIST   = 160;    // px — attraction radius
-      const CURSOR_FORCE  = 0.018;  // attraction strength
-      const SPRING_K      = 0.03;   // spring to home
-      const DAMPING       = 0.92;   // inertia
-      const DOT_R         = 2.2;    // base dot radius
+      const COUNT = 90;     // number of nodes
+      const CONNECT_DIST = 130;    // px — max line distance
+      const CURSOR_DIST = 160;    // px — attraction radius
+      const CURSOR_FORCE = 0.018;  // attraction strength
+      const SPRING_K = 0.03;   // spring to home
+      const DAMPING = 0.92;   // inertia
+      const DOT_R = 2.2;    // base dot radius
 
       /* ── Brand colors (subtle, sophisticated) ── */
-      const NODE_COLOR  = 'rgba(108, 61, 232, ';   // indigo
-      const LINE_COLOR  = 'rgba(108, 61, 232, ';   // same for lines
-      const CURSOR_COLOR= 'rgba(255, 77,  109, ';  // coral for cursor halo
+      const NODE_COLOR = 'rgba(108, 61, 232, ';   // indigo
+      const LINE_COLOR = 'rgba(108, 61, 232, ';   // same for lines
+      const CURSOR_COLOR = 'rgba(255, 77,  109, ';  // coral for cursor halo
 
       /* ── Particles ── */
       let pts = [];
@@ -919,8 +964,8 @@
             vy: (Math.random() - 0.5) * 0.4,
             /* slow idle drift */
             phase: Math.random() * Math.PI * 2,
-            freq:  0.0006 + Math.random() * 0.0008,
-            amp:   18 + Math.random() * 22,
+            freq: 0.0006 + Math.random() * 0.0008,
+            amp: 18 + Math.random() * 22,
           });
         }
       }
@@ -951,9 +996,9 @@
 
           /* cursor attraction */
           if (cursorActive) {
-            const dx   = smooth.x - p.x;
-            const dy   = smooth.y - p.y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
+            const dx = smooth.x - p.x;
+            const dy = smooth.y - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < CURSOR_DIST && dist > 1) {
               const strength = (1 - dist / CURSOR_DIST) * CURSOR_FORCE;
               p.vx += dx * strength;
@@ -964,38 +1009,38 @@
           /* integrate */
           p.vx *= DAMPING;
           p.vy *= DAMPING;
-          p.x  += p.vx;
-          p.y  += p.vy;
+          p.x += p.vx;
+          p.y += p.vy;
 
           /* soft boundary wrap */
           if (p.x < -20) p.x = W + 20;
-          if (p.x > W+20) p.x = -20;
+          if (p.x > W + 20) p.x = -20;
           if (p.y < -20) p.y = H + 20;
-          if (p.y > H+20) p.y = -20;
+          if (p.y > H + 20) p.y = -20;
         }
 
         /* ── Draw connection lines ── */
         for (let i = 0; i < pts.length; i++) {
           const a = pts[i];
           for (let j = i + 1; j < pts.length; j++) {
-            const b  = pts[j];
+            const b = pts[j];
             const dx = a.x - b.x;
             const dy = a.y - b.y;
-            const d  = Math.sqrt(dx*dx + dy*dy);
+            const d = Math.sqrt(dx * dx + dy * dy);
             if (d < CONNECT_DIST) {
               const alpha = (1 - d / CONNECT_DIST) * 0.22;
 
               /* boost line alpha if near cursor */
               let boost = 0;
               if (cursorActive) {
-                const ma = Math.sqrt((a.x-smooth.x)**2 + (a.y-smooth.y)**2);
-                const mb = Math.sqrt((b.x-smooth.x)**2 + (b.y-smooth.y)**2);
+                const ma = Math.sqrt((a.x - smooth.x) ** 2 + (a.y - smooth.y) ** 2);
+                const mb = Math.sqrt((b.x - smooth.x) ** 2 + (b.y - smooth.y) ** 2);
                 if (ma < CURSOR_DIST || mb < CURSOR_DIST) boost = 0.35;
               }
 
               ctx.beginPath();
               ctx.strokeStyle = LINE_COLOR + (alpha + boost) + ')';
-              ctx.lineWidth   = 0.8 + boost * 1.2;
+              ctx.lineWidth = 0.8 + boost * 1.2;
               ctx.moveTo(a.x, a.y);
               ctx.lineTo(b.x, b.y);
               ctx.stroke();
@@ -1006,9 +1051,9 @@
         /* ── Cursor halo ── */
         if (cursorActive) {
           const grad = ctx.createRadialGradient(smooth.x, smooth.y, 0, smooth.x, smooth.y, CURSOR_DIST);
-          grad.addColorStop(0,   CURSOR_COLOR + '0.08)');
+          grad.addColorStop(0, CURSOR_COLOR + '0.08)');
           grad.addColorStop(0.4, CURSOR_COLOR + '0.04)');
-          grad.addColorStop(1,   CURSOR_COLOR + '0)');
+          grad.addColorStop(1, CURSOR_COLOR + '0)');
           ctx.beginPath();
           ctx.arc(smooth.x, smooth.y, CURSOR_DIST, 0, Math.PI * 2);
           ctx.fillStyle = grad;
@@ -1018,21 +1063,21 @@
         /* ── Draw nodes ── */
         for (const p of pts) {
           let alpha = 0.45;
-          let r     = DOT_R;
+          let r = DOT_R;
 
           /* enlarge & brighten near cursor */
           if (cursorActive) {
-            const d = Math.sqrt((p.x-smooth.x)**2 + (p.y-smooth.y)**2);
+            const d = Math.sqrt((p.x - smooth.x) ** 2 + (p.y - smooth.y) ** 2);
             if (d < CURSOR_DIST) {
               const t2 = 1 - d / CURSOR_DIST;
               alpha += t2 * 0.45;
-              r     += t2 * 2.5;
+              r += t2 * 2.5;
             }
           }
 
           /* glow */
           ctx.shadowColor = '#6C3DE8';
-          ctx.shadowBlur  = r > 3 ? 8 : 0;
+          ctx.shadowBlur = r > 3 ? 8 : 0;
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
