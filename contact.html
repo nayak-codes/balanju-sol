@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Balanju Solutions</title>
+  <meta name="description" content="Contact Balanju Solutions for software development, product, and technology partnerships." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .contact-layout { display:grid; grid-template-columns: .8fr 1.2fr; gap:48px; align-items:start; }
+    .contact-info { padding:28px 0; }
+    .contact-info h2 { margin-bottom:14px; }
+    .contact-detail { display:flex; gap:14px; align-items:flex-start; margin-top:24px; }
+    .contact-detail strong { display:block; margin-bottom:3px; }
+    .contact-detail span { color:var(--text-grey); font-size:.92rem; }
+    .contact-form-panel { padding:32px; background:white; border:1px solid var(--border); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); }
+    @media(max-width:760px) { .contact-layout { grid-template-columns:1fr; gap:10px; } .contact-form-panel { padding:24px; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar"><div class="container">
+    <a href="index.html" class="logo-wrapper" aria-label="Balanju Solutions Home"><img src="Balanju solutions logo.png" alt="Balanju Solutions Logo" class="logo-img"><div><span class="logo-text">Balanju</span><span class="logo-sub">Solutions</span></div></a>
+    <ul class="nav-links" role="navigation"><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="company.html">Company</a></li><li><a href="contact.html" class="active">Contact</a></li></ul>
+    <div class="nav-right"><a href="start-a-project.html" class="btn btn-primary" id="nav-cta">Start a Project</a><button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div>
+  </div></nav>
+  <div class="mobile-nav" id="mobileNav"><a href="index.html">Home</a><a href="products.html">Products</a><a href="services.html">Services</a><a href="about.html">About</a><a href="company.html">Company</a><a href="contact.html">Contact</a><a href="start-a-project.html" class="btn btn-primary btn-lg" style="margin-top:16px;">Start a Project</a></div>
+
+  <section class="page-hero"><div class="container"><div class="section-label reveal" style="color:var(--coral);background:rgba(255,77,109,.08);">Let's talk</div><h1 class="reveal reveal-delay-1">Turn your idea<br />into something real.</h1><p class="reveal reveal-delay-2" style="max-width:540px;margin:16px auto 0;font-size:1.05rem;">Tell us what you are building, fixing, or imagining. We will get back to you with a clear next step.</p></div></section>
+
+  <section class="section"><div class="container contact-layout">
+    <div class="contact-info reveal"><h2>We are listening.</h2><p>Whether you need a new product, a better website, or a technical partner, send us a note and let's start with a conversation.</p>
+      <div class="contact-detail"><span aria-hidden="true">✉️</span><div><strong>Email</strong><span>hello@balanju.com</span></div></div>
+      <div class="contact-detail"><span aria-hidden="true">📍</span><div><strong>Based in</strong><span>India · Working with teams everywhere</span></div></div>
+      <div class="contact-detail"><span aria-hidden="true">⏱️</span><div><strong>Response time</strong><span>Usually within one business day</span></div></div>
+    </div>
+    <div class="contact-form-panel reveal reveal-delay-1"><form class="contact-form" id="contactForm"><div class="form-row"><div class="form-group"><label for="name">Your name</label><input id="name" name="name" required /></div><div class="form-group"><label for="email">Email address</label><input id="email" name="email" type="email" required /></div></div><div class="form-group"><label for="subject">How can we help?</label><select id="subject" name="subject"><option>Start a new project</option><option>Ask about services</option><option>Discuss a partnership</option><option>Something else</option></select></div><div class="form-group"><label for="message">Your message</label><textarea id="message" name="message" required placeholder="A few details about your idea..."></textarea></div><button class="btn btn-primary btn-lg" type="submit">Send Message</button></form></div>
+  </div></section>
+  <footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2026 Balanju. All rights reserved.</p><p>We build. We serve. We deliver.</p></div></div></footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

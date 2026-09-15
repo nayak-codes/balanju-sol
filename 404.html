@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — Balanju Solutions</title>
+  <meta name="description" content="The page you are looking for could not be found. Return to Balanju Solutions." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(108, 61, 232, 0.12), transparent 30%),
+        radial-gradient(circle at 88% 82%, rgba(255, 77, 109, 0.12), transparent 28%),
+        var(--bg-grey);
+    }
+
+    .error-page {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px 20px;
+    }
+
+    .error-card {
+      width: min(100%, 680px);
+      padding: clamp(36px, 7vw, 72px) clamp(24px, 7vw, 72px);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(108, 61, 232, 0.14);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+      animation: error-rise 0.65s ease both;
+    }
+
+    .error-logo {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(108, 61, 232, 0.2);
+    }
+
+    .error-code {
+      margin-bottom: 6px;
+      color: var(--indigo);
+      font-size: clamp(4rem, 14vw, 7.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .error-card h1 {
+      margin-bottom: 12px;
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+    }
+
+    .error-card p {
+      max-width: 440px;
+      margin: 0 auto 28px;
+    }
+
+    .error-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .error-footer {
+      margin-top: 34px;
+      color: var(--text-grey);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @keyframes error-rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .error-card { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="error-page">
+    <section class="error-card" aria-labelledby="error-title">
+      <img class="error-logo" src="balanju-logo.png" alt="Balanju Solutions" />
+      <div class="error-code" aria-hidden="true">404</div>
+      <h1 id="error-title">This page took a wrong turn.</h1>
+      <p>We could not find the page you were looking for. Let us get you back to something useful.</p>
+      <div class="error-actions">
+        <a class="btn btn-primary btn-lg" href="index.html">Back to Home</a>
+        <a class="btn btn-outline btn-lg" href="products.html">Explore Products</a>
+      </div>
+      <div class="error-footer">Balanju Solutions · We build. We serve. We deliver.</div>
+    </section>
+  </main>
+</body>
+
+</html>
